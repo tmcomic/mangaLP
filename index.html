@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>高単価商品の価値を、伝わる形へ｜信頼獲得導線まるごと支援</title>
+<title>Kindle漫画出版｜出版後のマーケティング運用代行付き</title>
+<meta name="description" content="自分史・経営者ブランディング・売上アップ。目的に合わせて、最後まで読まれる漫画でKindle出版。発売から30日間のKindleマーケティング運用代行が標準で付属します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -618,217 +619,237 @@ footer {
 }
 
 
-/* FUNNEL */
-.funnel {
-  max-width: 900px;
-  margin: 0 auto 56px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-.funnel-step {
-  background: var(--white);
-  border: 1px solid rgba(201,168,76,0.4);
-  border-radius: 4px;
-  padding: 10px 14px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink);
-  text-align: center;
-  line-height: 1.5;
-}
-.funnel-step small { display: block; font-weight: 400; font-size: 11px; color: var(--slate); }
-.funnel-arrow { color: var(--gold); font-weight: 700; }
-.funnel-goal { background: var(--ink); color: var(--gold-light); border-color: var(--ink); }
-.funnel-goal small { color: rgba(255,255,255,0.6); }
 
-/* PLANS */
-.sub-head {
-  font-family: 'Noto Serif JP', serif;
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: 900;
+/* LEAD */
+.sec-lead {
   text-align: center;
-  margin: 0 auto 8px;
-  color: var(--ink);
-}
-.sub-lead {
-  text-align: center;
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--slate);
-  line-height: 1.8;
-  margin: 0 auto 32px;
-  max-width: 640px;
+  line-height: 1.9;
+  max-width: 680px;
+  margin: -24px auto 44px;
 }
-.plan-grid {
-  max-width: 1000px;
+.dark .sec-lead { color: rgba(255,255,255,0.7); }
+
+/* TYPES */
+.types-section { background: var(--cream); padding: 80px 24px; }
+.type-grid {
+  max-width: 1040px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  align-items: stretch;
 }
-@media(max-width:860px) { .plan-grid { grid-template-columns: 1fr; max-width: 520px; } }
-.plan-card {
+@media(max-width:900px) { .type-grid { grid-template-columns: 1fr; max-width: 560px; } }
+.type-card {
+  background: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border-top: 4px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.type-top { padding: 28px 24px 20px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.type-no { font-size: 11px; letter-spacing: 0.25em; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+.type-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 21px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.type-wish {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+.type-body { padding: 20px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.type-label { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin: 0 0 8px; }
+.type-body .service-list { margin-bottom: 18px; }
+.type-body .service-list li { font-size: 13px; }
+.type-point { font-size: 13px; color: var(--slate); line-height: 1.8; margin-bottom: 18px; }
+.type-reco {
+  margin-top: auto;
+  background: #f9f7f2;
+  border: 1px dashed rgba(201,168,76,0.7);
+  border-radius: 4px;
+  padding: 12px 14px;
+}
+.type-reco .type-label { margin-bottom: 4px; }
+.type-reco p { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.6; }
+.type-reco a { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4); }
+
+/* SAMPLE */
+.sample-cap { text-align: center; font-size: 13px; color: var(--slate); margin: -28px 0 28px; }
+.sample-link-wrap { text-align: center; margin-top: 32px; }
+.sample-btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--ink);
+  background: var(--white);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 32px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.sample-btn:hover { background: #fdf6e3; }
+
+/* COMPARE */
+.compare-section { background: var(--white); padding: 80px 24px; }
+.compare-wrap { max-width: 900px; margin: 0 auto; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 14px; table-layout: fixed; }
+.compare-table th, .compare-table td { padding: 16px 14px; border-bottom: 1px solid rgba(0,0,0,0.08); line-height: 1.7; vertical-align: top; text-align: left; }
+.compare-table thead th { font-family: 'Noto Serif JP', serif; font-size: 14px; }
+.compare-table thead th:nth-child(2) { color: #888; background: #f4f4f4; }
+.compare-table thead th:nth-child(3) { background: var(--ink); color: var(--gold-light); }
+.compare-table tbody th { width: 22%; color: var(--ink); font-weight: 700; font-size: 13px; }
+.compare-table tbody td:nth-child(2) { color: #888; background: #fafafa; }
+.compare-table tbody td:nth-child(3) { color: var(--ink); font-weight: 700; background: #fdf9ee; }
+@media(max-width:600px) {
+  .compare-table { font-size: 12.5px; }
+  .compare-table th, .compare-table td { padding: 12px 8px; }
+  .compare-table tbody th { width: 24%; font-size: 12px; }
+}
+
+/* MARKETING */
+.mk-section { background: var(--ink); padding: 80px 24px; position: relative; overflow: hidden; }
+.mk-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 55%);
+}
+.mk-section > * { position: relative; }
+.mk-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media(max-width:860px) { .mk-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:560px) { .mk-grid { grid-template-columns: 1fr; } }
+.mk-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 4px;
+  padding: 22px 20px;
+}
+.mk-num { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 10px; }
+.mk-item h3 { font-family: 'Noto Serif JP', serif; font-size: 15.5px; color: var(--white); margin-bottom: 8px; line-height: 1.5; }
+.mk-item p { font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.8; }
+.mk-note { max-width: 960px; margin: 24px auto 0; font-size: 11.5px; color: rgba(255,255,255,0.4); line-height: 1.9; }
+
+/* PRICE */
+.price-section { background: #f0ede5; padding: 80px 24px; }
+.main-plan {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(201,168,76,0.2);
+  overflow: hidden;
+}
+.main-plan-head { background: linear-gradient(135deg, var(--ink), #2d2d4e); padding: 28px 28px 24px; text-align: center; }
+.main-plan-head .plan-tier { font-size: 11px; letter-spacing: 0.25em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+.main-plan-head h3 { font-family: 'Noto Serif JP', serif; font-size: clamp(20px, 3vw, 26px); font-weight: 900; color: var(--white); margin-bottom: 6px; }
+.main-plan-head p { font-size: 13px; color: rgba(255,255,255,0.65); }
+.main-plan-price { text-align: center; padding: 26px 24px 4px; font-family: 'Noto Serif JP', serif; font-size: 44px; font-weight: 900; color: var(--ink); line-height: 1.2; }
+.main-plan-price span { font-size: 14px; font-weight: 400; color: var(--slate); margin-left: 4px; }
+.main-plan-body { padding: 18px 32px 32px; }
+.main-plan-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-bottom: 24px; }
+@media(max-width:600px) { .main-plan-list { grid-template-columns: 1fr; } .main-plan-body { padding: 18px 20px 26px; } }
+.main-plan-list li { font-size: 14px; color: var(--slate); line-height: 1.6; padding-left: 24px; position: relative; }
+.main-plan-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.main-plan-list li.hl {
+  grid-column: 1 / -1;
+  background: #fdf6e3;
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 4px;
+  padding: 12px 14px 12px 38px;
+  color: var(--ink);
+  font-weight: 700;
+}
+.main-plan-list li.hl::before { left: 14px; top: 12px; color: var(--gold); content: '★'; }
+.main-plan-list li.hl small { display: block; font-weight: 400; font-size: 12px; color: var(--slate); margin-top: 2px; }
+.main-plan-body .btn-cta {
+  display: block;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--ink);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px;
+  border-radius: 2px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+}
+
+.addon-head { text-align: center; margin: 72px auto 8px; }
+.addon-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(45,106,79,0.1);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+.addon-head h3 { font-family: 'Noto Serif JP', serif; font-size: clamp(19px, 3vw, 25px); font-weight: 900; color: var(--ink); line-height: 1.5; }
+.opt-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media(max-width:900px) { .opt-grid { grid-template-columns: 1fr; max-width: 560px; } }
+.opt-card {
   background: var(--white);
   border: 1px solid rgba(0,0,0,0.08);
   border-radius: 4px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
 }
-.plan-card.featured {
-  border: 2px solid var(--gold);
-  box-shadow: 0 10px 40px rgba(201,168,76,0.25);
-}
-.plan-ribbon {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 700;
-  text-align: center;
-  padding: 6px;
-  letter-spacing: 0.1em;
-}
-.plan-head {
-  background: linear-gradient(135deg, var(--ink), #2d2d4e);
-  padding: 24px 24px 20px;
-  text-align: center;
-}
-.plan-tier { font-size: 11px; letter-spacing: 0.25em; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
-.plan-name {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-.plan-catch { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.7; }
-.plan-price-box { padding: 22px 24px 6px; text-align: center; }
-.plan-regular { font-size: 12px; color: #999; }
-.plan-regular s { margin-left: 4px; }
-.plan-price {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 34px;
-  font-weight: 900;
-  color: var(--ink);
-  line-height: 1.3;
-}
-.plan-price span { font-size: 13px; font-weight: 400; color: var(--slate); margin-left: 2px; }
-.plan-save {
-  display: inline-block;
-  margin-top: 6px;
-  background: rgba(45,106,79,0.1);
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
-.plan-body { padding: 18px 24px 24px; flex: 1; display: flex; flex-direction: column; }
-.plan-body .service-col-title { margin-bottom: 10px; }
-.plan-items { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
-.plan-items li {
-  font-size: 13px;
-  color: var(--slate);
-  line-height: 1.6;
-  padding-left: 22px;
-  position: relative;
-}
-.plan-items li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: 700;
-}
-.plan-items li.plus::before { content: '＋'; color: var(--gold); }
-.plan-items li strong { color: var(--ink); }
-.plan-for {
-  font-size: 12.5px;
-  color: var(--slate);
-  line-height: 1.7;
-  background: #f9f7f2;
-  border-left: 3px solid var(--gold);
-  padding: 10px 12px;
-  margin-bottom: 18px;
-}
-.plan-body .service-cta-btn { margin-top: auto; text-align: center; }
+.opt-card.set { border: 2px solid var(--ink); }
+.opt-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.opt-tag { font-size: 11px; padding: 2px 10px; border-radius: 20px; background: #f0ede5; color: var(--slate); }
+.opt-card h4 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 900; color: var(--ink); margin-bottom: 8px; }
+.opt-card > p { font-size: 13px; color: var(--slate); line-height: 1.8; margin-bottom: 14px; }
+.opt-card .service-list { margin-bottom: 14px; }
+.opt-card .service-list li { font-size: 13px; }
+.opt-price { margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(0,0,0,0.07); }
+.opt-price .now { font-family: 'Noto Serif JP', serif; font-size: 24px; font-weight: 900; color: var(--ink); }
+.opt-price .now span { font-size: 12px; font-weight: 400; color: var(--slate); margin-left: 4px; }
+.opt-price .cond { font-size: 12px; font-weight: 700; color: var(--accent); }
+.opt-price .reg { font-size: 12px; color: #999; margin-top: 2px; }
 
-.addon-box {
-  max-width: 1000px;
-  margin: 28px auto 0;
-  background: var(--white);
-  border: 1px dashed rgba(201,168,76,0.7);
-  border-radius: 4px;
-  padding: 22px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+.single-wrap { max-width: 860px; margin: 64px auto 0; }
+.single-wrap h3 { font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 900; text-align: center; margin-bottom: 6px; color: var(--ink); }
+.single-wrap .sub { text-align: center; font-size: 13px; color: var(--slate); margin-bottom: 20px; }
+.single-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 4px; overflow: hidden; font-size: 13.5px; }
+.single-table th, .single-table td { padding: 14px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); text-align: left; line-height: 1.6; vertical-align: top; }
+.single-table th { color: var(--ink); font-weight: 700; width: 34%; }
+.single-table td { color: var(--slate); }
+.single-table td.pr { white-space: nowrap; text-align: right; font-weight: 700; color: var(--ink); width: 22%; }
+.single-table td.pr small { display: block; font-weight: 400; color: var(--accent); font-size: 11.5px; }
+@media(max-width:600px) {
+  .single-table, .single-table tbody, .single-table tr, .single-table th, .single-table td { display: block; width: 100%; }
+  .single-table tr { border-bottom: 1px solid rgba(0,0,0,0.08); padding: 8px 0; }
+  .single-table th, .single-table td { border: none; padding: 4px 16px; }
+  .single-table td.pr { text-align: left; }
 }
-.addon-box h4 { font-family: 'Noto Serif JP', serif; font-size: 16px; color: var(--ink); margin-bottom: 6px; }
-.addon-box p { font-size: 13px; color: var(--slate); line-height: 1.7; }
-.addon-price { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 22px; color: var(--ink); white-space: nowrap; }
-.addon-price s { font-size: 12px; color: #999; font-weight: 400; margin-right: 6px; }
-.addon-price span { font-size: 12px; font-weight: 400; color: var(--slate); }
+.price-notes { max-width: 860px; margin: 20px auto 0; font-size: 12px; color: #888; line-height: 1.9; }
 
-/* SINGLE MENU */
-.menu-block { max-width: 1000px; margin: 72px auto 0; }
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-@media(max-width:700px) { .menu-grid { grid-template-columns: 1fr; } }
-.menu-item {
-  background: var(--white);
-  border: 1px solid rgba(0,0,0,0.07);
-  border-radius: 4px;
-  padding: 20px 22px;
-  display: flex;
-  flex-direction: column;
-}
-.menu-top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-.menu-num {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 24px;
-  font-weight: 900;
-  color: rgba(201,168,76,0.6);
-  line-height: 1;
-  flex-shrink: 0;
-}
-.menu-item h4 {
-  font-family: 'Noto Serif JP', serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.4;
-}
-.menu-catch { font-size: 12.5px; color: var(--gold); font-weight: 700; margin-bottom: 10px; line-height: 1.6; }
-.menu-item .service-list { margin-bottom: 14px; }
-.menu-item .service-list li { font-size: 13px; }
-.menu-price {
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  font-family: 'Noto Serif JP', serif;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--ink);
-}
-.menu-price span { font-size: 12px; font-weight: 400; color: var(--slate); margin-left: 4px; }
-.menu-price-note { font-size: 11.5px; color: var(--accent); margin-top: 4px; font-weight: 700; }
-.menu-notes {
-  margin-top: 24px;
-  font-size: 12px;
-  color: #888;
-  line-height: 1.9;
-}
+.btn-primary.inline { opacity: 1; animation: none; }
 
 /* UTILS */
 .gold-divider {
@@ -868,318 +889,319 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">高単価商品の価値訴求・信頼獲得導線支援</div>
-  <h1>あなたの<em>価値</em>、<br>ちゃんと伝わっていますか？</h1>
+  <p class="hero-eyebrow">出して終わりにしない、Kindle漫画出版</p>
+  <h1>あなたの<em>物語</em>を、<br>読まれる一冊の漫画に。</h1>
   <p class="hero-sub">
-    講座・コンサル・専門サービスなど、<br>
-    価値はあるのに伝わりにくい高単価商品を<br>
-    <strong style="color:#fff">伝わる・信頼される・相談につながる</strong>形へ整えます。<br>
-    訴求整理から漫画LP・Kindle出版・導線設計まで、<br>まるごと支援します。
+    人生の歩み、経営者としての想い、事業の価値。<br>
+    文章では伝えきれないものを、最後まで読まれる「漫画」にしてKindleで出版します。<br>
+    発売後の販促まで任せられる<strong style="color:var(--white)">Kindleマーケティング運用代行</strong>が標準で付いています。
   </p>
   <div class="hero-badges">
-    <span class="hero-badge">漫画LP制作</span>
     <span class="hero-badge">Kindle漫画出版</span>
-    <span class="hero-badge">信頼獲得導線設計</span>
-    <span class="hero-badge">訴求整理・構成支援</span>
+    <span class="hero-badge">マーケティング運用代行付き</span>
+    <span class="hero-badge">原稿執筆は不要</span>
+    <span class="hero-badge">紙の書籍化にも対応</span>
   </div>
   <a href="https://maroon-ex.jp/fx366524/rU6KD9" class="btn-primary" target="_blank">申し込みフォームはこちら</a>
   <p class="hero-note">※ 返信は通常2営業日以内にお送りします</p>
   <div class="hero-scroll">SCROLL</div>
 </section>
 
-<!-- MANGA -->
-<section class="manga-section">
-  <div class="section-label reveal">Story</div>
-  <h2 class="section-title reveal">売れない原因は、<br>「商品」じゃないかもしれません</h2>
-  <div class="gold-divider reveal"></div>
-  <div class="manga-strip reveal">
-    <img src="manga_p1.jpg" loading="lazy">
-    <img src="manga_p2.jpg" loading="lazy">
-    <img src="manga_p3.jpg" loading="lazy">
-    <img src="manga_p4.jpg" loading="lazy">
-    <img src="manga_p5.jpg" loading="lazy">
+<!-- PAIN -->
+<section class="pain-section">
+  <div class="container">
+    <div class="section-label reveal" style="color:var(--gold)">こんな想いはありませんか？</div>
+    <h2 class="section-title reveal" style="color:var(--white)">いつか、本を出したいと<br>思っていた</h2>
+    <div class="pain-list">
+      <div class="pain-item reveal">「自分が歩んできた人生を、<strong>家族や次の世代に残したい</strong>」</div>
+      <div class="pain-item reveal">「創業の想いを、<strong>社員や取引先にきちんと伝えたい</strong>」</div>
+      <div class="pain-item reveal">「経営者として、<strong>名前と考え方を知ってもらう</strong>きっかけがほしい」</div>
+      <div class="pain-item reveal">「本をきっかけに、<strong>会社への問い合わせや売上を増やしたい</strong>」</div>
+      <div class="pain-item reveal">「でも、<strong>文章を書く時間も自信もない</strong>」</div>
+      <div class="pain-item reveal">「出版しても、<strong>誰にも読まれずに終わる</strong>のが不安」</div>
+    </div>
+    <div class="pain-conclusion reveal">
+      文章が書けなくても大丈夫です。<br>
+      <em>お話を聞かせていただくだけ</em>で、<em>最後まで読まれる漫画</em>の一冊に。<br>
+      出版した後の販促まで、まとめてお任せください。
+    </div>
   </div>
 </section>
 
-<!-- PAIN -->
-<section class="pain-section">
-  <div style="max-width:640px; margin: 0 auto;">
-    <div class="section-label reveal" style="color:var(--gold)">こんなお悩みありませんか？</div>
-    <h2 class="section-title reveal" style="color:var(--white)">もし今あなたが…</h2>
-    <div class="gold-divider reveal"></div>
-    <div class="pain-list reveal">
-      <div class="pain-item">「商品やサービスには<strong>自信があるのに</strong>、なぜか響かない」</div>
-      <div class="pain-item">「説明すれば伝わるのに、<strong>説明する前に離脱</strong>される」</div>
-      <div class="pain-item">「発信しても読まれるだけで、<strong>相談につながらない</strong>」</div>
-      <div class="pain-item">「LPもSNSも整えたのに、<strong>決め手が弱い気がする</strong>」</div>
-      <div class="pain-item">「<strong>出版やKindleに興味があるが</strong>、何から始めればいいかわからない」</div>
-      <div class="pain-item">「<strong>漫画LP・Kindleなど手段はわかるが</strong>、自分に合うかどうか判断できない」</div>
+<!-- TYPES -->
+<section class="types-section">
+  <div class="section-label reveal">Purpose</div>
+  <h2 class="section-title reveal">目的に合わせて、<br>一冊の役割を設計します</h2>
+  <p class="sec-lead reveal">同じKindle出版でも、目的によってつくるべき本は変わります。<br>まずは、あなたが本を出したい理由をお聞かせください。</p>
+  <div class="type-grid">
+    <div class="type-card reveal">
+      <div class="type-top">
+        <div class="type-no">TYPE 01</div>
+        <div class="type-name">自分史・自叙伝</div>
+        <p class="type-wish">人生や想いを、<br>形に残したい</p>
+      </div>
+      <div class="type-body">
+        <div class="type-label">こんな方に</div>
+        <ul class="service-list rec-list">
+          <li>自分の人生を家族や次の世代に残したい</li>
+          <li>創業の想いを社員に伝えたい</li>
+          <li>人生の節目に、記念の一冊をつくりたい</li>
+        </ul>
+        <div class="type-label">漫画にすると</div>
+        <p class="type-point">子どもからご年配の方まで、世代を問わず読める一冊に。写真や文章だけでは伝わらない場面や感情まで届きます。</p>
+        <div class="type-reco">
+          <div class="type-label">ご一緒におすすめ</div>
+          <p>紙の書籍化（POD）<br><span style="font-weight:400;font-size:12.5px;color:var(--slate)">手渡しできる「紙の本」に</span></p>
+          <a href="#price">料金を見る →</a>
+        </div>
+      </div>
     </div>
-    <div class="pain-conclusion reveal">
-      売れない原因は<em>商品そのものではなく</em>、<br>
-      <em>価値が伝わる順番</em>・<em>信頼が積み上がる見せ方</em>・<br>
-      <em>次の行動へ進む導線</em>にあることが少なくありません。
+
+    <div class="type-card reveal">
+      <div class="type-top">
+        <div class="type-no">TYPE 02</div>
+        <div class="type-name">経営者ブランディング</div>
+        <p class="type-wish">経営者として、<br>名前を知ってもらいたい</p>
+      </div>
+      <div class="type-body">
+        <div class="type-label">こんな方に</div>
+        <ul class="service-list rec-list">
+          <li>「著者」という肩書きで信頼を高めたい</li>
+          <li>名刺代わりに渡せる一冊がほしい</li>
+          <li>取材や講演のきっかけをつくりたい</li>
+        </ul>
+        <div class="type-label">漫画にすると</div>
+        <p class="type-point">経営哲学やこれまでの歩みが、短い時間で印象に残ります。読んだ人が「この人に会ってみたい」と感じるストーリーに。</p>
+        <div class="type-reco">
+          <div class="type-label">ご一緒におすすめ</div>
+          <p>紙の書籍化（POD）＋漫画LP<br><span style="font-weight:400;font-size:12.5px;color:var(--slate)">紙の本と、漫画で伝わるプロフィールページ</span></p>
+          <a href="#price">料金を見る →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card reveal">
+      <div class="type-top">
+        <div class="type-no">TYPE 03</div>
+        <div class="type-name">売上アップ</div>
+        <p class="type-wish">本をきっかけに、<br>会社の売上を伸ばしたい</p>
+      </div>
+      <div class="type-body">
+        <div class="type-label">こんな方に</div>
+        <ul class="service-list rec-list">
+          <li>講座・コンサルなどの高単価商品を売りたい</li>
+          <li>見込み客との接点を増やしたい</li>
+          <li>営業時の説明の負担を減らしたい</li>
+        </ul>
+        <div class="type-label">漫画にすると</div>
+        <p class="type-point">商品の価値や考え方が、読むだけで伝わります。読み終えた人が登録・相談へ進む流れを、本の中に設計します。</p>
+        <div class="type-reco">
+          <div class="type-label">ご一緒におすすめ</div>
+          <p>集客導線セット<br><span style="font-weight:400;font-size:12.5px;color:var(--slate)">読者をLINE登録・相談につなげる仕組み</span></p>
+          <a href="#price">料金を見る →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- WHY MANGA -->
-<section class="why-section">
+<section class="why-section" style="background:#f0ede5">
   <div class="section-label reveal">Why Manga</div>
-  <h2 class="section-title reveal">なぜ「漫画」が高単価商品に効くのか</h2>
-  <div class="gold-divider reveal"></div>
-  <div class="why-grid reveal">
-    <div class="why-card">
+  <h2 class="section-title reveal">なぜ「漫画」で出版するのか</h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
       <div class="why-num">01</div>
       <h3>最後まで<br>読まれる</h3>
-      <p>文章より離脱されにくく、価値を最後まで届けることができます。</p>
+      <p>文章の本よりも手に取りやすく、最後のページまで想いが届きます。</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-1">
       <div class="why-num">02</div>
-      <h3>難しい内容を<br>やさしく伝える</h3>
-      <p>専門用語や複雑な概念を、誰でも理解できる言葉とビジュアルに変換します。</p>
+      <h3>世代を問わず<br>伝わる</h3>
+      <p>専門的な内容も人生の出来事も、子どもからご年配の方まで理解できる形にします。</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-2">
       <div class="why-num">03</div>
-      <h3>共感と信頼を<br>同時に作る</h3>
-      <p>ストーリーで「自分ごと」にさせながら、提供者への信頼を積み上げます。</p>
+      <h3>人柄と信頼が<br>伝わる</h3>
+      <p>ストーリーで共感が生まれ、著者であるあなたへの信頼が積み上がります。</p>
     </div>
-    <div class="why-card">
+    <div class="why-card reveal reveal-delay-3">
       <div class="why-num">04</div>
-      <h3>営業負担を<br>大きく減らす</h3>
-      <p>「読んでもらう前提」の説明が減り、相談・申込につながる質が上がります。</p>
+      <h3>原稿を<br>書かなくていい</h3>
+      <p>お話を伺い、シナリオ作成から作画までこちらで行います。執筆の負担はありません。</p>
     </div>
   </div>
 </section>
 
-<!-- SERVICE -->
-<section class="service-section" id="service">
-  <div class="section-label reveal">Service &amp; Price</div>
-  <h2 class="section-title reveal">サービス・料金</h2>
+<!-- SAMPLE -->
+<section class="manga-section" style="background:var(--cream)">
+  <div class="section-label reveal">Sample</div>
+  <h2 class="section-title reveal">漫画にすると、こう伝わります</h2>
+  <p class="sample-cap reveal">制作例：売上アップ型（サービス紹介漫画）</p>
+  <div class="manga-strip reveal">
+    <img src="manga_p1.jpg" alt="制作例 漫画1ページ目" loading="lazy">
+    <img src="manga_p2.jpg" alt="制作例 漫画2ページ目" loading="lazy">
+    <img src="manga_p3.jpg" alt="制作例 漫画3ページ目" loading="lazy">
+    <img src="manga_p4.jpg" alt="制作例 漫画4ページ目" loading="lazy">
+    <img src="manga_p5.jpg" alt="制作例 漫画5ページ目" loading="lazy">
+  </div>
+  <div class="sample-link-wrap reveal">
+    <a href="https://drive.google.com/file/d/1W1AZOA2w2H0Z1rxgBZTOQ0KET6MXvA9E/view?usp=sharing" class="sample-btn" target="_blank">📖 Kindle出版サンプルを見る →</a>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="compare-section">
+  <div class="section-label reveal">Difference</div>
+  <h2 class="section-title reveal">一般的なKindle出版代行との違い</h2>
+  <div class="compare-wrap reveal">
+    <table class="compare-table">
+      <thead>
+        <tr><th></th><th>一般的な出版代行</th><th>当サービス</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>本の形式</th><td>文章が中心</td><td>最後まで読まれる漫画</td></tr>
+        <tr><th>原稿</th><td>自分で執筆、または聞き書き</td><td>ヒアリングだけでシナリオ化。執筆は不要</td></tr>
+        <tr><th>企画</th><td>出版すること自体がゴール</td><td>自分史・ブランディング・売上アップの目的から逆算して設計</td></tr>
+        <tr><th>出版後</th><td>出版した時点で支援終了</td><td>発売から30日間のKindleマーケティング運用代行が標準で付属</td></tr>
+        <tr><th>その先</th><td>—</td><td>紙の本、集客の仕組みなど目的に合わせて追加できる</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="mk-section dark" id="marketing">
+  <div class="section-label reveal" style="color:var(--gold)">Kindle Marketing</div>
+  <h2 class="section-title reveal" style="color:var(--white)">出版して終わりにしない。<br>Kindleマーケティング運用代行</h2>
+  <p class="sec-lead reveal">一般的な出版代行は、出版した時点で支援が終わります。<br>当サービスでは発売から30日間、Amazonで本が見つけられ、読まれるための販促を代行します。<br><strong style="color:var(--gold-light)">すべての出版プランに標準で付いています。</strong></p>
+  <div class="mk-grid">
+    <div class="mk-item reveal"><div class="mk-num">01</div><h3>カテゴリー・キーワード設計</h3><p>Amazonの中で見つけてもらいやすいカテゴリーと検索キーワードを選びます。</p></div>
+    <div class="mk-item reveal"><div class="mk-num">02</div><h3>商品ページの作成</h3><p>思わず読みたくなる紹介文をつくり、商品ページを整えます。</p></div>
+    <div class="mk-item reveal"><div class="mk-num">03</div><h3>著者ページの作成</h3><p>Amazon著者セントラルで、プロフィールと著者ページを整えます。</p></div>
+    <div class="mk-item reveal"><div class="mk-num">04</div><h3>無料キャンペーンの企画・実施</h3><p>無料キャンペーンの日程を設計し、発売直後の読者数を伸ばします。</p></div>
+    <div class="mk-item reveal"><div class="mk-num">05</div><h3>発売告知の素材づくり</h3><p>SNS・メール・LINEでそのまま使える告知文と告知画像を作成します。</p></div>
+    <div class="mk-item reveal"><div class="mk-num">06</div><h3>30日後の結果レポート</h3><p>ダウンロード数やランキングの推移をまとめ、次の一手をご提案します。</p></div>
+  </div>
+  <p class="mk-note reveal">※ 販売数・ランキング順位を保証するものではありません。<br>※ 無料キャンペーンの実施には、KDPセレクトへの登録が必要です。</p>
+</section>
+
+<!-- PRICE -->
+<section class="price-section" id="price">
+  <div class="section-label reveal">Price</div>
+  <h2 class="section-title reveal">料金</h2>
   <div class="gold-divider reveal"></div>
 
-  <p class="sub-lead reveal">Kindle出版を「出して終わり」にせず、見込み客との最初の接点として設計します。<br>出版から相談・申込までの流れを、必要な分だけお選びいただけます。</p>
-
-  <div class="funnel reveal" aria-label="集客導線の流れ">
-    <div class="funnel-step">Kindle出版<small>見込み客との出会い</small></div>
-    <span class="funnel-arrow">→</span>
-    <div class="funnel-step">巻末特典で登録<small>LINE・メールのリスト化</small></div>
-    <span class="funnel-arrow">→</span>
-    <div class="funnel-step">教育漫画のステップ配信<small>理解と信頼を育てる</small></div>
-    <span class="funnel-arrow">→</span>
-    <div class="funnel-step">漫画LP<small>価値を伝えきる</small></div>
-    <span class="funnel-arrow">→</span>
-    <div class="funnel-step funnel-goal">個別相談・申込<small>バックエンド販売</small></div>
+  <div class="main-plan reveal">
+    <div class="main-plan-head">
+      <div class="plan-tier">BASIC PLAN</div>
+      <h3>Kindle漫画出版プラン</h3>
+      <p>自分史・ブランディング・売上アップ、どの目的にも対応</p>
+    </div>
+    <div class="main-plan-price">50万円<span>（税別）</span></div>
+    <div class="main-plan-body">
+      <ul class="main-plan-list">
+        <li>ヒアリング・目的に合わせた企画</li>
+        <li>シナリオ作成（原稿執筆は不要）</li>
+        <li>漫画制作（約100ページ）</li>
+        <li>表紙制作</li>
+        <li>Kindle出版の手続き代行</li>
+        <li>修正対応</li>
+        <li class="hl">Kindleマーケティング運用代行（発売から30日間）<small>カテゴリー設計・商品ページ・著者ページ・無料キャンペーン・告知素材・結果レポート</small></li>
+      </ul>
+      <a href="https://maroon-ex.jp/fx366524/rU6KD9" class="btn-cta" target="_blank">申し込みフォームはこちら</a>
+    </div>
   </div>
 
-  <!-- PACKAGES -->
-  <h3 class="sub-head reveal">パックプラン</h3>
-  <p class="sub-lead reveal">単品を組み合わせたお得なセットです。迷ったら「集客導線パック」がおすすめです。</p>
+  <div class="addon-head reveal">
+    <div class="addon-kicker">ご一緒にいかがですか？</div>
+    <h3>目的に合わせて、出版と同時に追加できるオプション</h3>
+  </div>
+  <p class="sec-lead reveal" style="margin:0 auto 32px">出版と同時にご依頼いただくと、制作データをそのまま活かせるため、<br>単品でご依頼いただくよりもお得な価格でご提供できます。</p>
 
-  <div class="plan-grid">
-    <div class="plan-card reveal">
-      <div class="plan-head">
-        <div class="plan-tier">LIGHT</div>
-        <div class="plan-name">出版パック</div>
-        <p class="plan-catch">Kindle出版に、読者をリストに変える<br>最低限の導線を付けたプラン</p>
-      </div>
-      <div class="plan-price-box">
-        <div class="plan-regular">単品合計<s>62万円</s></div>
-        <div class="plan-price">58万円<span>（税別）</span></div>
-        <div class="plan-save">4万円お得</div>
-      </div>
-      <div class="plan-body">
-        <div class="service-col-title">含まれるもの</div>
-        <ul class="plan-items">
-          <li>Kindle漫画出版（100P）</li>
-          <li>リスト獲得導線（巻末特典・登録ページ）</li>
-          <li class="plus">オプション：POD紙書籍化 ＋6万円</li>
-        </ul>
-        <p class="plan-for">まずは出版から始めたい方。出版後の反応を見て、配信やLPを追加できます。</p>
-        <a href="https://lin.ee/Vp0FyCC" class="service-cta-btn" target="_blank">LINEで相談する →</a>
+  <div class="opt-grid">
+    <div class="opt-card reveal">
+      <div class="opt-tags"><span class="opt-tag">自分史</span><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div>
+      <h4>紙の書籍化（POD）</h4>
+      <p>Amazonで注文できるペーパーバック版をつくります。ご家族への贈り物、名刺代わりの一冊、セミナーでの手渡しに。</p>
+      <ul class="service-list">
+        <li>印刷用の本文データ作成</li>
+        <li>背表紙・裏表紙を含むカバー制作</li>
+        <li>ペーパーバックの登録代行</li>
+      </ul>
+      <div class="opt-price">
+        <div class="cond">出版と同時なら</div>
+        <div class="now">6万円<span>（税別）</span></div>
+        <div class="reg">単品の場合 8万円</div>
       </div>
     </div>
 
-    <div class="plan-card featured reveal">
-      <div class="plan-ribbon">いちばん人気・おすすめ</div>
-      <div class="plan-head">
-        <div class="plan-tier">STANDARD</div>
-        <div class="plan-name">集客導線パック</div>
-        <p class="plan-catch">Kindleから相談・申込まで、<br>集客の流れを一式で構築</p>
-      </div>
-      <div class="plan-price-box">
-        <div class="plan-regular">単品合計<s>137万円</s></div>
-        <div class="plan-price">115万円<span>（税別）</span></div>
-        <div class="plan-save">22万円お得</div>
-      </div>
-      <div class="plan-body">
-        <div class="service-col-title">含まれるもの</div>
-        <ul class="plan-items">
-          <li>Kindle漫画出版（100P）</li>
-          <li>ファネル設計</li>
-          <li>リスト獲得導線</li>
-          <li>ステップ配信 教育漫画（7通）</li>
-          <li>漫画LP制作</li>
-          <li class="plus">オプション：POD紙書籍化 ＋6万円</li>
-        </ul>
-        <p class="plan-for">出版を集客の入口にして、講座・コンサルなど高単価商品の販売につなげたい方。</p>
-        <a href="https://lin.ee/Vp0FyCC" class="service-cta-btn" target="_blank">LINEで相談する →</a>
+    <div class="opt-card reveal">
+      <div class="opt-tags"><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div>
+      <h4>漫画LP制作</h4>
+      <p>本の世界観をそのまま活かしたWebページをつくります。経営者のプロフィールページや、商品・サービスの紹介ページに。</p>
+      <ul class="service-list">
+        <li>構成案・シナリオ作成</li>
+        <li>漫画制作（8〜12ページ）</li>
+        <li>LP制作</li>
+      </ul>
+      <div class="opt-price">
+        <div class="now">30万円<span>（税別）</span></div>
       </div>
     </div>
 
-    <div class="plan-card reveal">
-      <div class="plan-head">
-        <div class="plan-tier">PREMIUM</div>
-        <div class="plan-name">売上直結パック</div>
-        <p class="plan-catch">教育配信を厚くし、紙の本まで揃えた<br>信頼獲得のフルセット</p>
-      </div>
-      <div class="plan-price-box">
-        <div class="plan-regular">単品合計<s>171万円</s></div>
-        <div class="plan-price">145万円<span>（税別）</span></div>
-        <div class="plan-save">26万円お得</div>
-      </div>
-      <div class="plan-body">
-        <div class="service-col-title">含まれるもの</div>
-        <ul class="plan-items">
-          <li><strong>集客導線パックの内容すべて</strong></li>
-          <li>ステップ配信を<strong>14通</strong>に増量</li>
-          <li>POD紙書籍化（ペーパーバック）</li>
-        </ul>
-        <p class="plan-for">セミナーや個別相談で紙の本を手渡し、信頼を一気に高めたい方。高額商品の成約率を上げたい方。</p>
-        <a href="https://lin.ee/Vp0FyCC" class="service-cta-btn" target="_blank">LINEで相談する →</a>
+    <div class="opt-card set reveal">
+      <div class="opt-tags"><span class="opt-tag">売上アップ</span></div>
+      <h4>集客導線セット</h4>
+      <p>本を読んだ人をLINE・メールの登録者にし、教育漫画の配信と漫画LPで相談・申込までつなげる仕組みを一式でつくります。</p>
+      <ul class="service-list">
+        <li>ファネル設計（導線図・目標数値）</li>
+        <li>リスト獲得導線（巻末特典・登録ページ）</li>
+        <li>ステップ配信 教育漫画（7通）</li>
+        <li>漫画LP制作</li>
+      </ul>
+      <div class="opt-price">
+        <div class="cond">出版と同時なら</div>
+        <div class="now">65万円<span>（税別）</span></div>
+        <div class="reg">単品合計 87万円／出版後のご依頼は 75万円</div>
       </div>
     </div>
   </div>
 
-  <div class="addon-box reveal">
-    <div>
-      <h4>すでにKindleを出版済みの方へ：出版後ファネル追加パック</h4>
-      <p>ファネル設計・リスト獲得導線・ステップ配信 教育漫画（7通）・漫画LP制作をまとめて。<br>出版済みの本を、集客の入口に変えます。</p>
-    </div>
-    <div class="addon-price"><s>87万円</s>75万円<span>（税別）</span></div>
+  <div class="single-wrap reveal">
+    <h3>単品メニュー</h3>
+    <p class="sub">出版済みの方や、必要なものだけをご依頼したい方へ</p>
+    <table class="single-table">
+      <tbody>
+        <tr><th>Kindleマーケティング運用代行</th><td>他社や自分で出版済みの本も対応。発売・再販促から30日間</td><td class="pr">10万円</td></tr>
+        <tr><th>ファネル設計</th><td>商品・ターゲット整理、導線図、目標数値（KPI）設計書</td><td class="pr">15万円</td></tr>
+        <tr><th>リスト獲得導線</th><td>巻末の誘導文、読者特典（漫画数ページまたはPDF）、登録ページ、あいさつ文</td><td class="pr">12万円</td></tr>
+        <tr><th>ステップ配信 教育漫画</th><td>LINE／メール7通分の構成・配信文・各4〜8コマの漫画、配信スケジュール表</td><td class="pr">30万円<small>1通追加 ＋4万円</small></td></tr>
+        <tr><th>漫画LP制作</th><td>構成案・シナリオ、漫画8〜12ページ、LP制作</td><td class="pr">30万円</td></tr>
+        <tr><th>紙の書籍化（POD）</th><td>印刷用データ、カバー制作、ペーパーバック登録代行</td><td class="pr">8万円<small>出版と同時なら 6万円</small></td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- SINGLE MENU -->
-  <div class="menu-block">
-    <h3 class="sub-head reveal">単品メニュー</h3>
-    <p class="sub-lead reveal">必要なものだけを、1つからご依頼いただけます。</p>
-    <div class="menu-grid">
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">01</div><h4>Kindle漫画出版</h4></div>
-        <p class="menu-catch">集客の入口になる、100ページの漫画Kindle</p>
-        <ul class="service-list">
-          <li>ヒアリング・企画・読者ターゲット整理</li>
-          <li>構成・シナリオ作成</li>
-          <li>漫画制作（約100P）・表紙制作</li>
-          <li>Kindle出版代行</li>
-        </ul>
-        <a href="https://drive.google.com/file/d/1W1AZOA2w2H0Z1rxgBZTOQ0KET6MXvA9E/view?usp=sharing" class="kindle-link" target="_blank" style="margin:0 0 14px">📖 Kindle出版サンプルを見る →</a>
-        <div class="menu-price">50万円<span>（税別）</span></div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">02</div><h4>ファネル設計</h4></div>
-        <p class="menu-catch">出版から申込までの「売れる流れ」の設計図</p>
-        <ul class="service-list">
-          <li>商品価値・ターゲットの整理</li>
-          <li>Kindle〜相談までの導線図</li>
-          <li>各段階の役割と目標数値（KPI）設計書</li>
-        </ul>
-        <div class="menu-price">15万円<span>（税別）</span></div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">03</div><h4>リスト獲得導線</h4></div>
-        <p class="menu-catch">読者を、LINE・メールの登録者に変える</p>
-        <ul class="service-list">
-          <li>巻末の誘導文（CTA）設計</li>
-          <li>読者特典の制作（漫画数P またはPDF）</li>
-          <li>登録ページの制作</li>
-          <li>登録直後のあいさつ文</li>
-        </ul>
-        <div class="menu-price">12万円<span>（税別）</span></div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">04</div><h4>ステップ配信 教育漫画</h4></div>
-        <p class="menu-catch">登録者の理解と信頼を、漫画で毎日育てる</p>
-        <ul class="service-list">
-          <li>LINE／メール7通分の構成</li>
-          <li>配信文の作成</li>
-          <li>各通4〜8コマの漫画制作</li>
-          <li>配信スケジュール表</li>
-        </ul>
-        <div class="menu-price">30万円<span>（税別）</span></div>
-        <div class="menu-price-note">1通追加ごと ＋4万円</div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">05</div><h4>漫画LP制作</h4></div>
-        <p class="menu-catch">価値を「理解→共感→信頼」の流れで伝えきる</p>
-        <ul class="service-list">
-          <li>ヒアリング・構成案作成</li>
-          <li>シナリオ作成</li>
-          <li>漫画制作（8〜12P）</li>
-          <li>LP制作</li>
-        </ul>
-        <div class="menu-price">30万円<span>（税別）</span></div>
-      </div>
-
-      <div class="menu-item reveal">
-        <div class="menu-top"><div class="menu-num">06</div><h4>POD紙書籍化</h4></div>
-        <p class="menu-catch">Amazonで買える「紙の本」で、信頼を手渡しする</p>
-        <ul class="service-list">
-          <li>印刷用の本文データ作成</li>
-          <li>背表紙・裏表紙を含むカバー制作</li>
-          <li>ペーパーバックの登録代行</li>
-        </ul>
-        <div class="menu-price">8万円<span>（税別）</span></div>
-        <div class="menu-price-note">Kindle漫画出版と同時のご依頼なら 6万円</div>
-      </div>
-    </div>
-
-    <p class="menu-notes reveal">
-      ※ ステップ配信は、配信用の原稿・漫画画像一式と配信スケジュール表の納品となります。LINE・メール配信ツールへの設定はお客様にてお願いいたします（設定手順書をお渡しします）。<br>
-      ※ POD紙書籍の本文はモノクロを推奨しています（カラーは印刷費が上がり、販売価格が高くなるため）。<br>
-      ※ 表示価格はすべて税別です。内容・ページ数により調整する場合があります。
-    </p>
-  </div>
+  <p class="price-notes reveal">
+    ※ 表示価格はすべて税別です。内容・ページ数により調整する場合があります。<br>
+    ※ ステップ配信は、配信用の原稿・漫画画像一式と配信スケジュール表の納品です。LINE・メール配信ツールへの設定はお客様にてお願いいたします（設定手順書をお渡しします）。<br>
+    ※ 紙の書籍の本文はモノクロを推奨しています（カラーは印刷費が上がり、販売価格が高くなるため）。
+  </p>
 </section>
 
 <!-- FLOW -->
 <section class="flow-section">
   <div class="section-label reveal" style="color:var(--gold)">Flow</div>
-  <h2 class="section-title reveal" style="color:var(--white)">サポートの流れ</h2>
+  <h2 class="section-title reveal" style="color:var(--white)">出版までの流れ</h2>
   <div class="gold-divider reveal"></div>
   <div class="flow-steps reveal">
-    <div class="flow-step">
-      <div class="step-num">01</div>
-      <div class="step-content">
-        <h3>LINEで無料ヒアリング</h3>
-        <p>現状の課題・商品の強み・ターゲットを丁寧にヒアリング。「何が伝わっていないか」を一緒に整理します。まずは気軽にメッセージをお送りください。</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">02</div>
-      <div class="step-content">
-        <h3>訴求設計・サービス提案</h3>
-        <p>価値の翻訳＋伝わる順番を設計。どのサービスを組み合わせるか、具体的な提案をお届けします。「何を作るか」の前段から一緒に整えます。</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">03</div>
-      <div class="step-content">
-        <h3>制作・実装</h3>
-        <p>Kindle漫画・配信用の教育漫画・漫画LPなど、必要なコンテンツを制作。修正も柔軟に対応し、丁寧に仕上げます。</p>
-      </div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">04</div>
-      <div class="step-content">
-        <h3>納品・公開</h3>
-        <p>完成したKindle・配信用漫画・LPを納品し、出版・公開まで進めます。次の一手が見えてきたら、追加メニューのご提案もいたします。</p>
-      </div>
-    </div>
+    <div class="flow-step"><div class="step-num">01</div><div class="step-content"><h3>フォームから無料相談</h3><p>申し込みフォームからご連絡ください。出版の目的やご希望をお伺いします。</p></div></div>
+    <div class="flow-step"><div class="step-num">02</div><div class="step-content"><h3>ヒアリング・企画</h3><p>人生の歩みや事業への想いをお聞きし、目的に合わせて本の構成を設計します。</p></div></div>
+    <div class="flow-step"><div class="step-num">03</div><div class="step-content"><h3>シナリオ・漫画制作</h3><p>シナリオ、作画、表紙の順に、各段階でご確認いただきながら進めます。</p></div></div>
+    <div class="flow-step"><div class="step-num">04</div><div class="step-content"><h3>Kindle出版</h3><p>出版の手続きはすべて代行します。初めての方でも安心です。</p></div></div>
+    <div class="flow-step"><div class="step-num">05</div><div class="step-content"><h3>30日間のマーケティング運用</h3><p>商品ページの整備、無料キャンペーン、告知素材で、読まれる一冊に育てます。</p></div></div>
+    <div class="flow-step"><div class="step-num">06</div><div class="step-content"><h3>結果レポート・次のご提案</h3><p>30日間の結果をまとめてご報告し、紙の本や集客の仕組みなど、次の一手をご提案します。</p></div></div>
   </div>
 </section>
 
@@ -1192,10 +1214,34 @@ footer {
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-qmark">Q</span>
-        <span>どのサービスから始めればいいかわかりません</span>
+        <span>文章を書くのが苦手でも出版できますか？</span>
         <span class="faq-arrow">▾</span>
       </div>
-      <div class="faq-a">まずはLINEでご相談ください。現状をヒアリングしたうえで、最適なサービスをご提案します。「何から手をつけるべきか」の整理から一緒に行うことも可能です。</div>
+      <div class="faq-a">はい。原稿を書いていただく必要はありません。ヒアリングでお話を伺い、シナリオ作成から作画までこちらで行います。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>自分史・自叙伝でも依頼できますか？</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">はい、ご依頼いただけます。ご家族に向けた自分史や、社員に向けた創業ストーリーなど、目的に合わせて企画します。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>Kindleマーケティング運用代行では何をしてもらえますか？</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">発売から30日間、カテゴリー・キーワード設計、商品ページと著者ページの作成、無料キャンペーンの企画・実施、告知素材の作成、結果レポートを行います。販売数やランキング順位を保証するものではありません。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>オプションは出版した後からでも追加できますか？</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">はい、追加できます。ただし紙の書籍化と集客導線セットは、出版と同時にご依頼いただくほうがお得な価格になります。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
@@ -1211,15 +1257,7 @@ footer {
         <span>Kindle出版の経験がまったくないのですが大丈夫ですか？</span>
         <span class="faq-arrow">▾</span>
       </div>
-      <div class="faq-a">大丈夫です。出版手続きのサポートも含まれていますので、初めての方でもスムーズに進められます。</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-qmark">Q</span>
-        <span>制作期間はどのくらいかかりますか？</span>
-        <span class="faq-arrow">▾</span>
-      </div>
-      <div class="faq-a">サービス内容によって異なりますが、漫画LP制作は通常4〜6週間程度です。詳細はヒアリング後にご案内します。</div>
+      <div class="faq-a">大丈夫です。出版手続きはすべて代行しますので、初めての方でもスムーズに進められます。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
@@ -1232,10 +1270,10 @@ footer {
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
         <span class="faq-qmark">Q</span>
-        <span>出版パックを選んだあとで、配信やLPを追加できますか？</span>
+        <span>制作期間はどのくらいかかりますか？</span>
         <span class="faq-arrow">▾</span>
       </div>
-      <div class="faq-a">はい、可能です。単品で追加いただくほか、出版済みの方向けの「出版後ファネル追加パック」もご用意しています。</div>
+      <div class="faq-a">サービス内容によって異なりますが、漫画LP制作は通常4〜6週間程度です。詳細はヒアリング後にご案内します。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
@@ -1243,17 +1281,17 @@ footer {
         <span>相談だけでも大丈夫ですか？</span>
         <span class="faq-arrow">▾</span>
       </div>
-      <div class="faq-a">もちろんです。「まだ検討中」「何から始めるか迷っている」という段階でもお気軽にご連絡ください。無理な営業は一切しません。</div>
+      <div class="faq-a">もちろんです。「まだ検討中」「目的がはっきりしていない」という段階でもお気軽にご連絡ください。無理な営業は一切しません。</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section" id="cta">
-  <h2>あなたの<em>価値</em>を、<br>ちゃんと伝わる形に。</h2>
+  <h2>あなたの<em>一冊</em>を、<br>読まれる形に。</h2>
   <p class="cta-sub">
-    まずは申し込みフォームからお気軽にご連絡ください。<br>
-    「何が伝わっていないか」だけでも、一緒に整理しましょう。<br>
+    まずは申し込みフォームから、出版の目的をお聞かせください。<br>
+    自分史・ブランディング・売上アップ、どの目的でも大丈夫です。<br>
     無理な営業は一切しません。
   </p>
   <a href="https://maroon-ex.jp/fx366524/rU6KD9" class="cta-line-btn cta-form-btn" target="_blank">
@@ -1261,12 +1299,12 @@ footer {
   </a>
   <p class="cta-note">
     ※ 返信は通常2営業日以内にお送りします<br>
-    ※ まずは現状のお悩みをご記入いただくだけで大丈夫です
+    ※ まずは出版の目的やお悩みをご記入いただくだけで大丈夫です
   </p>
 </section>
 
 <footer>
-  <p>© 2025 高単価商品 価値訴求支援</p>
+  <p>© 2026 TMC出版</p>
   <p style="margin-top:8px; font-size:11px;">
     <a href="privacy.html" style="color:rgba(255,255,255,0.3); text-decoration:none;">プライバシーポリシー</a>
     　｜　
