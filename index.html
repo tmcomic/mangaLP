@@ -1195,6 +1195,17 @@ footer {
 .cta-chara { position: absolute; right: 4%; bottom: 0; height: 88%; max-height: 620px; opacity: 0.95; pointer-events: none; }
 @media(max-width:1000px) { .cta-chara { display: none; } }
 
+
+/* compact options */
+.opt-mini-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media(max-width:900px) { .opt-mini-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:520px) { .opt-mini-grid { grid-template-columns: 1fr; } }
+.opt-mini { background: var(--white); border: 1px solid rgba(0,0,0,0.08); border-top: 3px solid var(--gold); border-radius: 4px; padding: 18px 18px 16px; display: flex; flex-direction: column; }
+.opt-mini h4 { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 900; color: var(--ink); margin-bottom: 6px; line-height: 1.5; }
+.opt-mini p { font-size: 13px; color: var(--slate); line-height: 1.7; margin-bottom: 12px; }
+.opt-mini .opt-tags { margin: auto 0 0; }
+.opt-mini-cta { text-align: center; margin-top: 28px; }
+
 /* UTILS */
 .gold-divider {
   width: 48px;
@@ -1599,69 +1610,17 @@ footer {
 
   <div class="addon-head reveal">
     <div class="addon-kicker">ご一緒にいかがですか？</div>
-    <h3>目的に合わせて、出版と同時に追加できるオプション</h3>
+    <h3>目的に合わせて追加できるオプション</h3>
   </div>
-  <p class="sec-lead reveal" style="margin:0 auto 32px">出版と同時にご依頼いただくと、制作データをそのまま活かせるため、<br>あとから単品でご依頼いただくよりもお得になります。</p>
+  <p class="sec-lead reveal" style="margin:0 auto 28px">出版と同時のご依頼なら、あとから頼むよりもお得です。<br>内容とお見積りは、無料相談で個別にご案内します。</p>
 
-  <div class="opt-grid">
-    <div class="opt-card reveal">
-      <div class="opt-tags"><span class="opt-tag">自分史</span><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div>
-      <h4>紙の書籍化（POD）</h4>
-      <p>Amazonで注文できるペーパーバック版をつくります。ご家族への贈り物、名刺代わりの一冊、セミナーでの手渡しに。</p>
-      <ul class="service-list">
-        <li>印刷用の本文データ作成</li>
-        <li>背表紙・裏表紙を含むカバー制作</li>
-        <li>ペーパーバックの登録代行</li>
-      </ul>
-      <div class="opt-price"><div class="quote-label">個別お見積り</div><div class="quote-txt" style="font-size:12.5px;margin-top:2px">出版と同時のご依頼で、お得になります</div><a href="https://maroon-ex.jp/fx366524/rU6KD9" class="opt-cta" target="_blank">無料相談に申し込む</a></div>
-    </div>
-
-    <div class="opt-card reveal">
-      <div class="opt-tags"><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div>
-      <h4>漫画LP制作</h4>
-      <p>本の世界観をそのまま活かしたWebページをつくります。経営者のプロフィールページや、商品・サービスの紹介ページに。</p>
-      <ul class="service-list">
-        <li>構成案・シナリオ作成</li>
-        <li>漫画制作（8〜12ページ）</li>
-        <li>LP制作</li>
-      </ul>
-      <div class="opt-price"><div class="quote-label">個別お見積り</div><a href="https://maroon-ex.jp/fx366524/rU6KD9" class="opt-cta" target="_blank">無料相談に申し込む</a></div>
-    </div>
-
-    <div class="opt-card set reveal">
-      <div class="opt-tags"><span class="opt-tag">売上アップ</span></div>
-      <h4>集客導線セット</h4>
-      <p>本を読んだ人をLINE・メールの登録者にし、教育漫画の配信と漫画LPで相談・申込までつなげる仕組みを一式でつくります。</p>
-      <ul class="service-list">
-        <li>ファネル設計（導線図・目標数値）</li>
-        <li>リスト獲得導線（巻末特典・登録ページ）</li>
-        <li>ステップ配信 教育漫画（7通）</li>
-        <li>漫画LP制作</li>
-      </ul>
-      <div class="opt-price"><div class="quote-label">個別お見積り</div><div class="quote-txt" style="font-size:12.5px;margin-top:2px">4つを個別に頼むより、セットがお得。<br>出版と同時のご依頼なら、さらにお得になります</div><a href="https://maroon-ex.jp/fx366524/rU6KD9" class="opt-cta" target="_blank">無料相談に申し込む</a></div>
-    </div>
+  <div class="opt-mini-grid">
+    <div class="opt-mini reveal"><h4>紙の書籍化（POD）</h4><p>Amazonで注文できるペーパーバック版に</p><div class="opt-tags"><span class="opt-tag">自分史</span><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div></div>
+    <div class="opt-mini reveal"><h4>漫画LP制作</h4><p>本の世界観を活かしたWebページに</p><div class="opt-tags"><span class="opt-tag">ブランディング</span><span class="opt-tag">売上アップ</span></div></div>
+    <div class="opt-mini reveal"><h4>集客導線セット</h4><p>読者をLINE登録・相談につなげる仕組みに</p><div class="opt-tags"><span class="opt-tag">売上アップ</span></div></div>
+    <div class="opt-mini reveal"><h4>Kindleマーケティング運用代行</h4><p>すでに出版済みの本の販促にも</p><div class="opt-tags"><span class="opt-tag">出版済みの方</span></div></div>
   </div>
-
-  <div class="single-wrap reveal">
-    <h3>単品メニュー</h3>
-    <p class="sub">出版済みの方や、必要なものだけをご依頼したい方へ</p>
-    <table class="single-table">
-      <tbody>
-        <tr><th>Kindleマーケティング運用代行</th><td>他社や自分で出版済みの本も対応。発売・再販促から30日間</td><td class="q">個別お見積り</td></tr>
-        <tr><th>ファネル設計</th><td>商品・ターゲット整理、導線図、目標数値（KPI）設計書</td><td class="q">個別お見積り</td></tr>
-        <tr><th>リスト獲得導線</th><td>巻末の誘導文、読者特典（漫画数ページまたはPDF）、登録ページ、あいさつ文</td><td class="q">個別お見積り</td></tr>
-        <tr><th>ステップ配信 教育漫画</th><td>LINE／メール7通分の構成・配信文・各4〜8コマの漫画、配信スケジュール表（通数の追加も可）</td><td class="q">個別お見積り</td></tr>
-        <tr><th>漫画LP制作</th><td>構成案・シナリオ、漫画8〜12ページ、LP制作</td><td class="q">個別お見積り</td></tr>
-        <tr><th>紙の書籍化（POD）</th><td>印刷用データ、カバー制作、ペーパーバック登録代行</td><td class="q">個別お見積り</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <p class="price-notes reveal">
-    ※ 料金は、目的・内容・ページ数に合わせて個別にお見積りします。お見積りは無料です。<br>
-    ※ ステップ配信は、配信用の原稿・漫画画像一式と配信スケジュール表の納品です。LINE・メール配信ツールへの設定はお客様にてお願いいたします（設定手順書をお渡しします）。<br>
-    ※ 紙の書籍の本文はモノクロを推奨しています（カラーは印刷費が上がり、販売価格が高くなるため）。
-  </p>
+  <div class="opt-mini-cta reveal"><a href="https://maroon-ex.jp/fx366524/rU6KD9" class="btn-primary inline" target="_blank">無料相談に申し込む</a></div>
 </section>
 
 <!-- FLOW -->
@@ -1751,6 +1710,30 @@ footer {
         <span class="faq-arrow">▾</span>
       </div>
       <div class="faq-a">はい、追加できます。ただし紙の書籍化と集客導線セットは、出版と同時にご依頼いただくほうがお得な価格になります。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>Amazonの出版審査に通るか不安です。</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">Kindle本は、Amazon（Kindleダイレクト・パブリッシング）が内容を確認したうえで販売が始まります。ZEROXIAでは、Amazonのガイドラインに沿って原稿・表紙・電子書籍データを制作し、出版手続きまで代行します。修正を求められた場合も、内容を確認して対応します。なお、審査の判断はAmazonが行うため、出版を確約するものではありません。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>印税はどうなりますか？</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">出版するアカウントは、ご本人名義とZEROXIA名義のどちらも選べます。ご本人名義の場合、印税はAmazonからご本人に直接支払われます。ZEROXIA名義の場合の印税の取り扱いは、ご契約時に取り決めます。<br>Kindle本の印税率は35%または70%です。日本のAmazonで70%を選ぶには、KDPセレクトへの登録と、販売価格を250〜1,650円の範囲に設定することが必要です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-qmark">Q</span>
+        <span>個人情報や顔出しはどうなりますか？</span>
+        <span class="faq-arrow">▾</span>
+      </div>
+      <div class="faq-a">ペンネームでの出版も可能で、顔写真を出す必要もありません。著者ページの写真の代わりに、イラストを使うこともできます。ヒアリングで伺った内容などの個人情報は、本の制作・出版以外の目的には使用しません。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">
