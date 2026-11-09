@@ -1206,6 +1206,21 @@ footer {
 .opt-mini .opt-tags { margin: auto 0 0; }
 .opt-mini-cta { text-align: center; margin-top: 28px; }
 
+
+/* VOICES */
+.voice-section { background: var(--white); padding: 88px 24px; }
+.voice-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media(max-width:900px) { .voice-grid { grid-template-columns: 1fr; max-width: 620px; } }
+.voice { display: grid; grid-template-columns: 38% 1fr; gap: 20px; background: #f6f8fc; border: 1px solid rgba(0,0,0,0.07); border-radius: 8px; padding: 20px; align-items: start; }
+@media(max-width:520px) { .voice { grid-template-columns: 1fr; } .voice-img { max-width: 220px; margin: 0 auto; } }
+.voice-img { position: relative; }
+.voice-img img { width: 100%; height: auto; display: block; border-radius: 4px; box-shadow: 0 8px 24px rgba(11,31,75,0.2); }
+.voice-kind { display: inline-block; font-size: 11.5px; font-weight: 700; color: #fff; background: var(--gold); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+.voice h3 { font-family: 'Noto Serif JP', serif; font-size: 17px; font-weight: 900; color: var(--ink); line-height: 1.6; margin-bottom: 10px; }
+.voice-who { font-size: 12.5px; font-weight: 700; color: var(--slate); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+.voice p { font-size: 13.5px; color: var(--slate); line-height: 1.95; }
+.voice-note { max-width: 1080px; margin: 18px auto 0; font-size: 11.5px; color: #999; line-height: 1.8; }
+
 /* UTILS */
 .gold-divider {
   width: 48px;
@@ -1246,7 +1261,7 @@ footer {
   <div class="in">
     <a href="#top" class="brand">ZERO<span class="x">X</span>IA</a>
     <nav class="site-nav">
-      <a href="#story">物語</a><a href="#types">目的別</a><a href="#cost">費用</a><a href="#flow">流れ</a><a href="#faq">よくある質問</a>
+      <a href="#story">物語</a><a href="#voice">お客様の声</a><a href="#types">目的別</a><a href="#cost">費用</a><a href="#flow">流れ</a><a href="#faq">よくある質問</a>
     </nav>
     <a href="https://maroon-ex.jp/fx366524/rU6KD9" class="head-cta" target="_blank">無料相談に申し込む</a>
   </div>
@@ -1490,6 +1505,52 @@ footer {
   <div class="sample-link-wrap reveal">
     <a href="https://drive.google.com/file/d/1W1AZOA2w2H0Z1rxgBZTOQ0KET6MXvA9E/view?usp=sharing" class="sample-btn" target="_blank">📖 Kindle出版サンプルを見る →</a>
   </div>
+</section>
+
+<!-- VOICES -->
+<section class="voice-section" id="voice" data-guide="happy|実際にご依頼いただいた方の声です">
+  <div class="section-label reveal">Voice</div>
+  <h2 class="section-title reveal">お客様の声</h2>
+  <p class="sec-lead reveal">電子書籍、小冊子、LP。<br>漫画で「伝わる形」をつくったお客様の声をご紹介します。</p>
+  <div class="voice-grid">
+    <div class="voice reveal">
+      <div class="voice-img"><img src="voice-1.webp" alt="電子書籍の表紙" loading="lazy"></div>
+      <div>
+        <span class="voice-kind">電子書籍</span>
+        <h3>「最後は、代表の人柄で選びました」</h3>
+        <div class="voice-who">東京都・音声/アート業　代表取締役　H.S様</div>
+        <p>新たな集客の柱を考えていて、広告やSNS、JV以外に何かあればと考えていた中、電子書籍出版はおもしろいと考えていました。<br>複数の電子書籍出版社から本を出しませんか？というお声はいただいたのですが、御社代表の人柄で選びました。</p>
+      </div>
+    </div>
+    <div class="voice reveal">
+      <div class="voice-img"><img src="voice-2.webp" alt="電子書籍の表紙" loading="lazy"></div>
+      <div>
+        <span class="voice-kind">電子書籍</span>
+        <h3>「個別相談の申し込みが3倍に。嬉しい悲鳴です」</h3>
+        <div class="voice-who">滋賀県・和尚　T.T様</div>
+        <p>和尚さんはなんでも無料で話を聞いてくれたり、相談に乗ってくれるというイメージを変えたかったのと、ビジネスで動けない人を動けるようにする仏教から学ぶ講座を広めるためにKindle出版のご相談をさせていただきました。<br>著者という肩書が増え、個別相談の申し込みが3倍増えて嬉しい悲鳴です。</p>
+      </div>
+    </div>
+    <div class="voice reveal">
+      <div class="voice-img"><img src="voice-3.webp" alt="小冊子用漫画の1ページ" loading="lazy"></div>
+      <div>
+        <span class="voice-kind">小冊子漫画</span>
+        <h3>「修正指示はたった1ヶ所。その完成度に驚きました」</h3>
+        <div class="voice-who">福島県・やまと式かずたま術鑑定士　S.H様</div>
+        <p>やまと式かずたま術の魅力を伝える小冊子用マンガを依頼しました。届いた漫画はよく出来ていて、かずたま術の上位の方に見ていただいたところ、修正指示はたった1ヶ所。その完成度に驚きました。仲間からも「ナイスチャレンジ」と言ってもらえました。対応がとても早く、名刺用の漫画も追加でお願いしたところ、その日のうちに仕上げていただけました。</p>
+      </div>
+    </div>
+    <div class="voice reveal">
+      <div class="voice-img"><img src="voice-4.webp" alt="漫画LPの1ページ" loading="lazy"></div>
+      <div>
+        <span class="voice-kind">漫画LP</span>
+        <h3>「シンプルに『すげー』ってなりました笑」</h3>
+        <div class="voice-who">大阪府・恋愛コンサル　代表取締役　M.S様</div>
+        <p>なかなか言葉では伝えるのが難しい商材を扱っていて、漫画を活用した訴求、見せ方をすることで伝わりやすくなったのとLPにすぐ組み込んでいただきシンプルにすげーってなりました笑</p>
+      </div>
+    </div>
+  </div>
+  <p class="voice-note reveal">※ お客様個人の感想・結果であり、成果を保証するものではありません。</p>
 </section>
 
 <!-- COMPARE -->
