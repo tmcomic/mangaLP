@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>マンガクル はじめての方向けガイド</title>
+<meta name="description" content="マンガクルの準備から漫画の完成まで、はじめての方向けにやさしく解説した使い方ガイドです。">
+<meta property="og:title" content="マンガクル はじめての方向けガイド">
+<meta property="og:description" content="マンガクルの準備から漫画の完成まで、はじめての方向けにやさしく解説した使い方ガイドです。">
+<meta property="og:type" content="website">
+<style>:root{color-scheme:light}body{margin:0;padding:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<style>
+  :root {
+    --paper: #eeece6;
+    --panel: #ffffff;
+    --ink: #1b1a17;
+    --ink-soft: #6b6860;
+    --accent: #c63a2e;
+    --accent-ink: #fbf8f3;
+    --line-green: #06c755;
+    --code-bg: #221f19;
+    --code-fg: #f1eee7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17160f;
+      --panel: #221f19;
+      --ink: #f1eee7;
+      --ink-soft: #a39c8c;
+      --accent: #e1543f;
+      --accent-ink: #17160f;
+      --code-bg: #0e0d09;
+      --code-fg: #f1eee7;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17160f; --panel: #221f19; --ink: #f1eee7;
+    --ink-soft: #a39c8c; --accent: #e1543f; --accent-ink: #17160f;
+    --code-bg: #0e0d09; --code-fg: #f1eee7;
+  }
+  :root[data-theme="light"] {
+    --paper: #eeece6; --panel: #ffffff; --ink: #1b1a17;
+    --ink-soft: #6b6860; --accent: #c63a2e; --accent-ink: #fbf8f3;
+    --code-bg: #221f19; --code-fg: #f1eee7;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  a { color: var(--accent); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 720px);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.1rem, 4vw, 2rem) 4rem;
+  }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+
+  aside {
+    position: sticky;
+    top: clamp(1.2rem, 3vw, 2rem);
+    align-self: start;
+    font-size: 0.86rem;
+  }
+  @media (max-width: 860px) {
+    aside { position: static; border-bottom: 1.5px solid var(--ink); padding-bottom: 1.2rem; }
+  }
+  .logotype { font-weight: 900; font-size: 1.2rem; margin: 0 0 0.15em; }
+  .doc-kicker { color: var(--ink-soft); font-size: 0.8rem; margin: 0 0 1.4em; }
+  aside nav ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; display: grid; gap: 0.5em; }
+  aside nav li { counter-increment: toc; }
+  aside nav a { color: var(--ink-soft); text-decoration: none; display: flex; gap: 0.6em; }
+  aside nav a:hover { color: var(--accent); }
+  aside nav a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--accent);
+    flex: none;
+  }
+  .side-cta {
+    margin-top: 1.6em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--line-green);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.7em 1em;
+    text-decoration: none;
+  }
+
+  main { min-width: 0; }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    line-height: 1.35;
+    margin: 0 0 0.3em;
+    text-wrap: balance;
+  }
+  .lede { color: var(--ink-soft); font-size: 1.03rem; max-width: 42em; margin: 0 0 1.8em; }
+
+  .manga-block { margin: 0 0 2.6rem; }
+  .manga-block img {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 0 auto;
+    border: var(--border-w, 3px) solid var(--ink);
+  }
+
+  section { margin: 0 0 clamp(2.6rem, 4vw, 3.4rem); scroll-margin-top: 1.5rem; }
+  .section-kicker {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    font-weight: 800;
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+    margin: 0 0 0.7em;
+    padding-bottom: 0.5em;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  h3 { font-size: 1.08rem; font-weight: 800; margin: 1.6em 0 0.5em; }
+  h4 { font-size: 0.92rem; font-weight: 700; margin: 0 0 0.5em; color: var(--accent); }
+  p { margin: 0 0 1em; }
+  ul.feature-list { margin: 0 0 1em; padding-left: 1.3em; }
+  ul.feature-list li { margin-bottom: 0.45em; }
+
+  /* ---------- 5-step overview ---------- */
+  .flow5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6rem;
+    margin: 0 0 1.2em;
+  }
+  @media (max-width: 700px) { .flow5 { grid-template-columns: 1fr 1fr; } }
+  .flow5-step {
+    border: 2px solid var(--ink);
+    background: var(--panel);
+    padding: 0.9em 0.7em;
+    text-align: center;
+  }
+  .flow5-step .num { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--accent); font-size: 0.76rem; }
+  .flow5-step .label { font-weight: 700; margin-top: 0.3em; font-size: 0.86rem; }
+  .time-note {
+    border-left: 4px solid var(--accent);
+    background: var(--panel);
+    padding: 0.8em 1.1em;
+    font-size: 0.9rem;
+  }
+
+  /* ---------- glossary ---------- */
+  .glossary { margin: 0 0 1em; }
+  .glossary .term {
+    background: var(--panel);
+    border: 1.5px solid var(--ink);
+    padding: 0.9em 1.1em;
+    margin-bottom: 0.7em;
+  }
+  .glossary .term dt {
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 0.3em;
+  }
+  .glossary .term dt .alt { font-weight: 400; color: var(--ink-soft); font-size: 0.82rem; }
+  .glossary .term dd { margin: 0; color: var(--ink-soft); font-size: 0.92rem; }
+
+  .reassure {
+    background: var(--panel);
+    border: 2px solid var(--accent);
+    padding: 1em 1.2em;
+    font-size: 0.95rem;
+    margin: 0 0 1.4em;
+  }
+  .reassure strong { color: var(--accent); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0 0 1em; }
+  th, td { text-align: left; padding: 0.65em 0.8em; border: 1.5px solid var(--ink); vertical-align: top; }
+  th { background: var(--panel); font-weight: 700; width: 34%; }
+  .table-wrap { overflow-x: auto; }
+
+  /* ---------- install steps ---------- */
+  .install-step {
+    border: 2px solid var(--ink);
+    background: var(--panel);
+    margin-bottom: 1.6em;
+    overflow: hidden;
+  }
+  .install-step-head {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.8em 1.1em;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+  }
+  .install-step-head .letter {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--accent);
+    font-weight: 800;
+  }
+  .install-step-head h3 { margin: 0; color: var(--paper); font-size: 1rem; }
+  .install-step-body { padding: 1.1em 1.2em 1.3em; }
+  .install-step-why { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 1em; }
+
+  .os-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin: 0 0 1em; }
+  @media (max-width: 600px) { .os-grid { grid-template-columns: 1fr; } }
+  .os-col { border: 1.5px solid var(--ink); padding: 0.8em 1em; }
+  .os-col h4 { margin: 0 0 0.5em; }
+  .os-col ol { margin: 0; padding-left: 1.2em; font-size: 0.88rem; }
+  .os-col li { margin-bottom: 0.4em; }
+
+  pre.code {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    padding: 0.8em 1em;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0.5em 0;
+  }
+  pre.code code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+  .callout { border-left: 4px solid var(--accent); background: var(--paper); padding: 0.8em 1.1em; font-size: 0.88rem; margin: 0.7em 0; }
+  .callout strong { color: var(--accent); }
+  .callout.warn { border-left-color: var(--ink-soft); }
+
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 0 0 1.2em; }
+  @media (max-width: 620px) { .flow { grid-template-columns: 1fr 1fr; } }
+  .flow-step { border: 2px solid var(--ink); background: var(--panel); padding: 0.9em 0.8em; text-align: center; }
+  .flow-step .num { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--accent); font-size: 0.78rem; }
+  .flow-step .label { font-weight: 700; margin-top: 0.3em; font-size: 0.92rem; }
+
+  .example-box {
+    background: var(--panel);
+    border: 1.5px solid var(--ink);
+    padding: 0.8em 1em;
+    margin: 0.5em 0;
+    font-size: 0.92rem;
+  }
+  .example-box::before { content: "例："; color: var(--accent); font-weight: 700; }
+
+  dl.faq dt { font-weight: 700; margin-top: 1.2em; display: flex; gap: 0.5em; }
+  dl.faq dt::before { content: "Q"; color: var(--accent); font-family: ui-monospace, monospace; }
+  dl.faq dd { margin: 0.35em 0 0; padding-left: 1.4em; color: var(--ink-soft); border-left: 1.5px solid var(--ink); }
+
+  dl.symptom dt {
+    font-weight: 800;
+    margin-top: 1.3em;
+    background: var(--panel);
+    border: 1.5px solid var(--ink);
+    padding: 0.6em 0.9em;
+  }
+  dl.symptom dd { margin: 0.5em 0 0; padding-left: 0.2em; color: var(--ink-soft); font-size: 0.92rem; }
+
+  footer { border-top: 1.5px solid var(--ink); padding-top: 1.2rem; font-size: 0.78rem; color: var(--ink-soft); }
+</style>
+
+<div class="layout">
+  <aside>
+    <p class="logotype"><a href="../" style="color:inherit;text-decoration:none;">マンガクル</a></p>
+    <p class="doc-kicker">はじめての方向けガイド</p>
+    <nav>
+      <ol>
+        <li><a href="#overview">全体の流れ</a></li>
+        <li><a href="#before-start">はじめる前に</a></li>
+        <li><a href="#requirements">準備するもの</a></li>
+        <li><a href="#install">インストール手順</a></li>
+        <li><a href="#setup-folder">使えるようにする</a></li>
+        <li><a href="#usage">実際に使ってみる</a></li>
+        <li><a href="#done">完成したら</a></li>
+        <li><a href="#troubleshoot">こんな時どうする？</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ol>
+    </nav>
+    <a class="side-cta" href="https://u6r0u7fm.autosns.app/addfriend/s/Nxt7FrQaY2/@237wvbjj" target="_blank" rel="noopener">LINEでダウンロード</a>
+  </aside>
+
+  <main>
+    <h1>マンガクル はじめての方向けガイド</h1>
+    <p class="lede">
+      パソコンの操作に自信がなくても大丈夫です。このページの順番どおりに進めれば、迷わず漫画が完成するところまでたどり着けます。
+    </p>
+
+    <div class="manga-block">
+      <img src="assets/manual_opening.jpg" alt="マンガクルの案内役キャラクターが読者に話しかける導入イラスト" />
+    </div>
+
+    <section id="overview">
+      <span class="section-kicker">STEP MAP</span>
+      <h2>1. 全体の流れ</h2>
+      <p>細かい手順に入る前に、まず全体像だけつかんでおきましょう。やることはこの5つだけです。</p>
+      <div class="flow5">
+        <div class="flow5-step"><div class="num">01</div><div class="label">準備するもの</div></div>
+        <div class="flow5-step"><div class="num">02</div><div class="label">インストール</div></div>
+        <div class="flow5-step"><div class="num">03</div><div class="label">起動</div></div>
+        <div class="flow5-step"><div class="num">04</div><div class="label">話しかける</div></div>
+        <div class="flow5-step"><div class="num">05</div><div class="label">漫画が届く</div></div>
+      </div>
+      <div class="time-note">
+        <strong>所要時間の目安：</strong>①〜③の準備は最初の1回だけで、合わせて30〜60分程度です。一度終われば、次回からは③からすぐに始められます。漫画が完成するまでは、ページ数にもよりますが1回あたり10〜20分程度かかります（1ページにつき2〜3分）。
+      </div>
+    </section>
+
+    <section id="before-start">
+      <span class="section-kicker">BEFORE YOU START</span>
+      <h2>2. はじめる前に</h2>
+      <div class="reassure">
+        <strong>この先、見慣れない言葉がいくつか出てきますが、覚える必要はありません。</strong>
+        それぞれ「何をするためのものか」だけ分かれば十分です。下の表にまとめたので、本文を読んでいて「？」と思ったら、ここに戻ってきてください。
+      </div>
+      <h3>用語ミニ辞典</h3>
+      <dl class="glossary">
+        <div class="term">
+          <dt>ターミナル <span class="alt">（Windowsでは「コマンドプロンプト」）</span></dt>
+          <dd>パソコンに文字で指示を出すための画面です。普段使うことはほとんどありませんが、最初の準備のときだけ少し使います。黒っぽい画面が出てきても、壊れたわけではありません。</dd>
+        </div>
+        <div class="term">
+          <dt>Node.js（ノードジェイエス）</dt>
+          <dd>マンガクルを動かすための「土台」になる、無料の共通ソフトです。家を建てる前の基礎工事のようなものだと思ってください。</dd>
+        </div>
+        <div class="term">
+          <dt>Claude Code（クロード コード）</dt>
+          <dd>マンガクルを実際に動かす本体です。あなたがテーマを話しかける相手になります。</dd>
+        </div>
+        <div class="term">
+          <dt>Codex CLI（コーデックス シーエルアイ）</dt>
+          <dd>漫画の絵を実際に描いてくれる部分です。裏側で動いていて、あなたが直接操作することはほぼありません。</dd>
+        </div>
+        <div class="term">
+          <dt>CLI <span class="alt">（コマンドラインツール）</span></dt>
+          <dd>「文字を打って操作するタイプのソフト」をまとめて呼ぶときの言葉です。Claude CodeもCodex CLIも、この仲間です。難しく考えなくて大丈夫です。</dd>
+        </div>
+      </dl>
+      <p>マンガクルはMac・Windowsのどちらでも使えます。このあとの手順では、両方のやり方をそれぞれ書いています。</p>
+    </section>
+
+    <section id="requirements">
+      <span class="section-kicker">WHAT YOU NEED</span>
+      <h2>3. 準備するもの</h2>
+      <p>
+        マンガクルは、あなた自身が契約する2つの月額制サービスの力を借りて動きます。これはマンガクル自体の料金ではなく、それぞれの公式サービスへの契約です。
+      </p>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>ChatGPT Plus</th>
+            <td>OpenAI社の公式サービス。漫画の絵を描く力になります。OpenAIの公式サイトから契約できます。</td>
+          </tr>
+          <tr>
+            <th>Claude Pro</th>
+            <td>Anthropic社の公式サービス。あなたとチャットで会話する力になります。Anthropicの公式サイトから契約できます。</td>
+          </tr>
+        </table>
+      </div>
+      <div class="callout"><strong>ポイント：</strong>料金プランは変更されることがあるため、最新の金額は必ずそれぞれの公式サイトでご確認ください。この2つ以外に、マンガクル自体への追加料金は発生しません。</div>
+    </section>
+
+    <section id="install">
+      <span class="section-kicker">INSTALL</span>
+      <h2>4. インストール手順</h2>
+      <p>ここから実際の準備です。上から順番に、ひとつずつ進めてください。全部で4つです。</p>
+
+      <div class="install-step">
+        <div class="install-step-head"><span class="letter mono">A</span><h3>Node.jsを入れる</h3></div>
+        <div class="install-step-body">
+          <p class="install-step-why">何のため：マンガクルを動かすための土台を用意します。</p>
+          <div class="os-grid">
+            <div class="os-col">
+              <h4>Mac の場合</h4>
+              <ol>
+                <li><a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> を開く</li>
+                <li>「推奨版（LTS）」と書かれたボタンをクリックしてダウンロード</li>
+                <li>ダウンロードしたファイルをダブルクリック</li>
+                <li>画面の指示どおりに「続ける」「インストール」を押していく</li>
+              </ol>
+            </div>
+            <div class="os-col">
+              <h4>Windows の場合</h4>
+              <ol>
+                <li><a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> を開く</li>
+                <li>「推奨版（LTS）」と書かれたボタンをクリックしてダウンロード</li>
+                <li>ダウンロードした .msi ファイルをダブルクリック</li>
+                <li>画面の指示どおりに「Next」「Install」を押していく</li>
+              </ol>
+            </div>
+          </div>
+          <div class="callout">
+            <strong>確認方法：</strong>ターミナル（Windowsはコマンドプロンプト）を開いて、次を入力しEnterキーを押します。
+            <pre class="code"><code>node --version</code></pre>
+            数字（バージョン番号）が表示されれば成功です。
+          </div>
+          <div class="callout warn">
+            <strong>うまくいかない時は：</strong>何も表示されない、または「command not found」のようなエラーが出る場合は、一度パソコンを再起動してからもう一度お試しください。
+          </div>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step-head"><span class="letter mono">B</span><h3>Claude Codeを入れる</h3></div>
+        <div class="install-step-body">
+          <p class="install-step-why">何のため：マンガクルを実際に操作する本体を用意します。</p>
+          <p>ターミナル（コマンドプロンプト）に、次を1行ずつ入力してEnterキーを押します。</p>
+          <pre class="code"><code>npm i -g @anthropic-ai/claude-code</code></pre>
+          <p>少し時間がかかります。文字がたくさん流れますが、止めずにそのまま待ってください。終わったら確認します。</p>
+          <pre class="code"><code>claude --version</code></pre>
+          <div class="callout">
+            <strong>はじめてのログイン：</strong>この後マンガクルを初めて起動すると、自動でブラウザが開き、Claude Proのアカウントでログインするよう求められます。案内に沿ってログインすれば完了です。一度ログインすれば、次回からは不要です。
+          </div>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step-head"><span class="letter mono">C</span><h3>Codex CLIを入れる</h3></div>
+        <div class="install-step-body">
+          <p class="install-step-why">何のため：漫画の絵を実際に描く部分を用意します。</p>
+          <pre class="code"><code>npm i -g @openai/codex</code></pre>
+          <p>終わったら、ログインのコマンドを入力します。</p>
+          <pre class="code"><code>codex login</code></pre>
+          <div class="callout">
+            ブラウザが自動で開くので、ChatGPT Plusのアカウントでログインしてください。一度ログインすれば、次回からは不要です。
+          </div>
+        </div>
+      </div>
+
+      <div class="install-step">
+        <div class="install-step-head"><span class="letter mono">D</span><h3>Pythonの道具をそろえる</h3></div>
+        <div class="install-step-body">
+          <p class="install-step-why">何のため：画像の確認や、完成ページを1冊のPDFにまとめる作業を自動で行うための道具です。</p>
+          <pre class="code"><code>pip install Pillow</code></pre>
+          <div class="callout warn">
+            <strong>うまくいかない時は：</strong>「command not found」と出る場合は、代わりに <span class="mono">pip3 install Pillow</span> をお試しください。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="setup-folder">
+      <span class="section-kicker">GET STARTED</span>
+      <h2>5. マンガクルを使えるようにする</h2>
+      <ol class="feature-list" style="padding-left: 1.4em;">
+        <li>LINEから届いたZIPファイルをダブルクリックすると、自動で展開されます（Windowsの場合、右クリック→「すべて展開」が必要な場合があります）。</li>
+        <li>展開してできた「mangakuru」という名前のフォルダを、デスクトップなど分かりやすい場所に置いてください。</li>
+      </ol>
+      <h3>起動する</h3>
+      <p>mangakuruフォルダの中にある、次のファイルをダブルクリックします。</p>
+      <div class="os-grid">
+        <div class="os-col">
+          <h4>Mac</h4>
+          <p class="mono" style="margin:0;">start_mac.command</p>
+        </div>
+        <div class="os-col">
+          <h4>Windows</h4>
+          <p class="mono" style="margin:0;">start_windows.bat</p>
+        </div>
+      </div>
+      <div class="callout warn">
+        <strong>初回に警告が出ることがあります：</strong>「開発元が確認できないため開けません」のような表示が出ても、故障や危険ではありません。初めて使うソフトに対する、念のための確認です。
+        <br />Macの場合：ファイルを右クリック（またはControlキーを押しながらクリック）→「開く」を選択→表示された画面でもう一度「開く」を押してください。
+        <br />Windowsの場合：「詳細情報」をクリック→「実行」を選択してください。
+      </div>
+    </section>
+
+    <section id="usage">
+      <span class="section-kicker">HOW TO USE</span>
+      <h2>6. 実際に使ってみる</h2>
+      <p>
+        起動すると、黒っぽい画面（ターミナル）が開きます。少し待つと、その中にチャット画面が立ち上がります。画面の下の方に、文字を入力する欄があります。
+      </p>
+      <h3>話しかけてみる</h3>
+      <p>入力欄に、作りたい漫画のテーマを伝えてください。例えばこんな風に打ち込みます。</p>
+      <div class="example-box">「"猫カフェで働くロボットの物語"というテーマで漫画を作って」</div>
+      <div class="example-box">「"〇〇（自分の商品名）"の魅力を伝える漫画を作って」</div>
+      <div class="example-box">「"Kindle出版サポート"というテーマで営業資料用の漫画を作って」</div>
+
+      <h3>聞かれることに答える</h3>
+      <p>続けて、いくつか質問されます。難しく考えず、そのときの気分で答えて大丈夫です。</p>
+      <ul class="feature-list">
+        <li><strong>総ページ数：</strong>迷ったら、まずは「4ページ」のように短めで試すのがおすすめです。</li>
+        <li><strong>カラーか白黒か：</strong>お好みで選べます。SNSなどで目を引きたい場合はカラーが人気です。</li>
+        <li><strong>キャラクターの要望：</strong>特になければ「おまかせで」で問題ありません。</li>
+      </ul>
+
+      <h3>できあがるのを待つ</h3>
+      <div class="callout">
+        1ページ作るのに2〜3分かかります。その間、画面には文字が流れ続けますが、これは正常に動いている証拠です。途中で画面を閉じたりせず、そのままお待ちください。
+      </div>
+      <p>
+        もし本当に止まってしまったように見えたら、入力欄に「続けて」と打ち込んでみてください。それまでの作業が失われることはありません。
+      </p>
+    </section>
+
+    <section id="done">
+      <span class="section-kicker">YOU'RE DONE</span>
+      <h2>7. 完成したら</h2>
+      <p>
+        完成すると、mangakuruフォルダの中の「output」フォルダの中に、テーマの名前がついたフォルダができています。その中にある <span class="mono">final_book.pdf</span> というファイルが、完成した漫画です。ダブルクリックすれば開いて読むことができます。
+      </p>
+    </section>
+
+    <section id="troubleshoot">
+      <span class="section-kicker">TROUBLESHOOTING</span>
+      <h2>8. こんな時どうする？</h2>
+      <p>症状から探せるようにまとめました。当てはまるものを探してみてください。</p>
+      <dl class="symptom">
+        <dt>急に真っ黒い画面が出てきた</dt>
+        <dd>それがターミナルです。故障ではありません。閉じずに、そのまま待っていてください。</dd>
+
+        <dt>英語のエラーのようなものが表示された</dt>
+        <dd>多くの場合、インストール手順のどこか一つが完了していないサインです。「4. インストール手順」を上から見直してみてください。</dd>
+
+        <dt>何も反応がなく、フリーズしたように見える</dt>
+        <dd>漫画の絵を作成している最中の可能性が高いです。1ページあたり2〜3分かかるので、数分待ってみてください。</dd>
+
+        <dt>テーマを伝えても質問されず、いきなり変な画像が1枚だけ出てきた</dt>
+        <dd>mangakuruフォルダの正しい場所から起動できていない可能性があります。フォルダの中身をフォルダごと動かさず、展開した「mangakuru」フォルダの直下で起動し直してみてください。</dd>
+
+        <dt>チャット欄に何を打てばいいか分からなくなった</dt>
+        <dd>「6. 実際に使ってみる」にある例文をそのままコピーして貼り付けてみてください。</dd>
+      </dl>
+    </section>
+
+    <section id="faq">
+      <span class="section-kicker">FAQ</span>
+      <h2>9. よくある質問</h2>
+      <dl class="faq">
+        <dt>OpenAIのAPIキーは必要ですか？</dt>
+        <dd>不要です。画像生成はCodex CLI経由でChatGPT Plusのログインだけで行われます。</dd>
+
+        <dt>Windowsでも使えますか？</dt>
+        <dd>Mac・Windowsどちらでも利用できます。このガイドでは両方の手順を併記しています。</dd>
+
+        <dt>途中で止まってしまいました</dt>
+        <dd>「続けて」と入力してください。進行状況は自動で保存されているので、途中からでも再開できます。レート制限に達した場合は、少し時間をおいてから同様に「続けて」と伝えてください。</dd>
+
+        <dt>カラーと白黒、どちらを選べばいいですか？</dt>
+        <dd>好みで選べます。SNSでの集客・発信用にはカラーの方が目を引きやすく、じっくり読ませる読み物にはモノクロの落ち着いた雰囲気も好まれます。</dd>
+
+        <dt>ページ数に上限はありますか？</dt>
+        <dd>ありません。1回の実行で作れる枚数を超える場合は「続けて」と伝えれば、何回でも継続して長編が作れます。</dd>
+      </dl>
+    </section>
+
+    <div class="manga-block">
+      <img src="assets/manual_ending.jpg" alt="完成を祝う案内役キャラクターのエンディングイラスト" />
+    </div>
+
+    <footer>
+      <p>動作にはChatGPT Plus・Claude Pro相当のご契約が必要です（本ツール自体に追加のAPI課金はありません）。ご不明な点はLINE公式アカウントよりお問い合わせください。</p>
+      <p><a href="../">マンガクル トップページへ戻る</a></p>
+      <p class="mono">マンガクル</p>
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>

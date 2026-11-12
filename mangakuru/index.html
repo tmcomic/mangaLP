@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>マンガクル — 話しかけると、マンガがクル。</title>
+<meta name="description" content="テーマを一言伝えるだけで、ストーリーもキャラクターもコマ割りもAIが自動で描き上げるマンガ制作ツール「マンガクル」。">
+<meta property="og:title" content="マンガクル — 話しかけると、マンガがクル。">
+<meta property="og:description" content="テーマを一言伝えるだけで、ストーリーもキャラクターもコマ割りもAIが自動で描き上げるマンガ制作ツール「マンガクル」。">
+<meta property="og:type" content="website">
+<style>:root{color-scheme:light}body{margin:0;padding:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<style>
+  :root {
+    --paper: #eeece6;
+    --panel: #ffffff;
+    --ink: #1b1a17;
+    --ink-soft: #6b6860;
+    --accent: #c63a2e;
+    --accent-ink: #fbf8f3;
+    --line-green: #06c755;
+    --border-w: 3px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17160f;
+      --panel: #221f19;
+      --ink: #f1eee7;
+      --ink-soft: #a39c8c;
+      --accent: #e1543f;
+      --accent-ink: #17160f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17160f;
+    --panel: #221f19;
+    --ink: #f1eee7;
+    --ink-soft: #a39c8c;
+    --accent: #e1543f;
+    --accent-ink: #17160f;
+  }
+  :root[data-theme="light"] {
+    --paper: #eeece6;
+    --panel: #ffffff;
+    --ink: #1b1a17;
+    --ink-soft: #6b6860;
+    --accent: #c63a2e;
+    --accent-ink: #fbf8f3;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+      "Yu Gothic", sans-serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 clamp(1.1rem, 4vw, 2.5rem);
+  }
+
+  /* ---------- header ---------- */
+  header.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+  .logotype {
+    font-weight: 900;
+    font-size: 1.3rem;
+    letter-spacing: 0.02em;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    border: 1.5px solid var(--ink);
+    padding: 0.35em 0.9em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .chip .dot {
+    width: 0.5em;
+    height: 0.5em;
+    background: var(--accent);
+    border-radius: 50%;
+    flex: none;
+  }
+
+  /* ---------- generic panel system ---------- */
+  .panel {
+    background: var(--panel);
+    border: var(--border-w) solid var(--ink);
+    padding: clamp(1.3rem, 3vw, 2.1rem);
+  }
+  .panel-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 0.9em;
+    display: block;
+  }
+  .koma-no {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- hero ---------- */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(0.9rem, 2vw, 1.3rem);
+    padding-bottom: clamp(0.9rem, 2vw, 1.3rem);
+  }
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+  h1 {
+    font-weight: 900;
+    font-size: clamp(2.15rem, 4.6vw, 3.5rem);
+    line-height: 1.28;
+    letter-spacing: 0.01em;
+    margin: 0.2em 0 0.5em;
+    text-wrap: balance;
+  }
+  h1 .accent-word {
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 34em;
+    margin: 0 0 1.7em;
+  }
+
+  .bubble {
+    position: relative;
+    background: var(--panel);
+    border: 2px solid var(--ink);
+    padding: 0.5em 1em;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .bubble.tail::after {
+    content: "";
+    position: absolute;
+    left: 1.6em;
+    bottom: -0.62em;
+    width: 0.9em;
+    height: 0.9em;
+    background: var(--panel);
+    border-right: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    transform: rotate(45deg) skew(6deg, 6deg);
+  }
+
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    background: var(--line-green);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.95em 1.5em;
+    border: var(--border-w) solid var(--ink);
+    text-decoration: none;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .cta-primary:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .cta-primary svg { flex: none; }
+  .cta-note {
+    margin-top: 0.9em;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  .hero-art { position: relative; }
+  .hero-art img {
+    width: 100%;
+    display: block;
+    border: var(--border-w) solid var(--ink);
+  }
+  .hero-art-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 0.6em;
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- halftone divider ---------- */
+  .halftone {
+    height: 46px;
+    background-image: radial-gradient(var(--ink) 1.15px, transparent 1.15px);
+    background-size: 9px 9px;
+    opacity: 0.28;
+  }
+
+  /* ---------- pain points ---------- */
+  section { padding: clamp(2.6rem, 5vw, 4.2rem) 0; }
+  .section-head {
+    text-align: center;
+    max-width: 34em;
+    margin: 0 auto clamp(1.8rem, 3vw, 2.6rem);
+  }
+  .section-head h2 {
+    font-weight: 900;
+    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+    margin: 0.3em 0;
+    text-wrap: balance;
+  }
+  .section-head p { color: var(--ink-soft); margin: 0; }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.9rem, 2vw, 1.3rem);
+  }
+  @media (max-width: 760px) { .pain-grid { grid-template-columns: 1fr; } }
+  .pain-card {
+    background: var(--panel);
+    border: 2px solid var(--ink);
+    border-radius: 999px 999px 6px 999px;
+    padding: 1.4em 1.6em;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .pivot-line {
+    text-align: center;
+    margin-top: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  }
+  .pivot-line .accent-word { color: var(--accent); }
+
+  /* ---------- value props ---------- */
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.9rem, 2vw, 1.3rem);
+  }
+  @media (max-width: 620px) { .value-grid { grid-template-columns: 1fr; } }
+  .value-grid .panel h3 {
+    font-size: 1.15rem;
+    margin: 0.2em 0 0.5em;
+  }
+  .value-grid .panel p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+  }
+
+  /* ---------- proof strip ---------- */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.9rem, 2vw, 1.3rem);
+    margin-top: clamp(1.3rem, 2.4vw, 1.8rem);
+  }
+  @media (max-width: 620px) { .proof-grid { grid-template-columns: 1fr; } }
+  .proof-grid img {
+    width: 100%;
+    display: block;
+    border: var(--border-w) solid var(--ink);
+  }
+  .proof-grid figcaption {
+    margin-top: 0.5em;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  figure { margin: 0; }
+
+  /* ---------- how it works ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.7rem, 1.6vw, 1.1rem);
+    align-items: stretch;
+  }
+  @media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } }
+  .step {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .step-visual {
+    height: 118px;
+    flex: none;
+    border-bottom: var(--border-w) solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .step-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .step-icon { width: 50px; height: 50px; flex: none; }
+  .step-body {
+    padding: clamp(1rem, 2.2vw, 1.3rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    flex: 1;
+  }
+  .step-body .panel-label { color: var(--ink-soft); margin: 0; }
+  .step-body h3 { margin: 0; font-size: 1.02rem; }
+  .step-body p { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+  .step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.3rem;
+  }
+  @media (max-width: 760px) { .step-arrow { display: none; } }
+
+  /* ---------- final cta ---------- */
+  .finale {
+    position: relative;
+    text-align: center;
+    border: var(--border-w) solid var(--ink);
+    padding: clamp(3.4rem, 9vw, 5.5rem) clamp(1.3rem, 4vw, 2.2rem) clamp(2.6rem, 6vw, 3.6rem);
+    overflow: hidden;
+    isolation: isolate;
+    color: #fbf7ef;
+  }
+  .finale::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("assets/hero-finale.jpg");
+    background-size: cover;
+    background-position: center 20%;
+    z-index: -2;
+  }
+  .finale::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 9, 5, 0.82) 0%,
+      rgba(12, 9, 5, 0.32) 32%,
+      rgba(12, 9, 5, 0.3) 62%,
+      rgba(12, 9, 5, 0.88) 100%
+    );
+    z-index: -1;
+  }
+  .finale-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 1.5px solid rgba(251, 247, 239, 0.7);
+    padding: 0.4em 1em;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.3em;
+  }
+  .finale-eyebrow .dot {
+    width: 0.5em;
+    height: 0.5em;
+    background: var(--accent);
+    border-radius: 50%;
+    flex: none;
+  }
+  .finale h2 {
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    line-height: 1.22;
+    margin: 0 0 0.5em;
+    text-wrap: balance;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  }
+  .finale-sub {
+    font-size: 1.02rem;
+    color: rgba(251, 247, 239, 0.88);
+    max-width: 30em;
+    margin: 0 auto 1.6em;
+  }
+  .mark-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .mark-wrap svg {
+    position: absolute;
+    top: -30px;
+    left: -42px;
+    width: 220px;
+    height: 130px;
+    pointer-events: none;
+  }
+  @media (max-width: 500px) {
+    .mark-wrap svg { display: none; }
+  }
+  .finale-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin: 0 0 2.1em;
+  }
+  .finale-tags span {
+    border: 1.5px solid rgba(251, 247, 239, 0.55);
+    background: rgba(12, 9, 5, 0.35);
+    padding: 0.45em 1em;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .finale-credit {
+    margin-top: 1.4em;
+    font-size: 0.72rem;
+    color: rgba(251, 247, 239, 0.6);
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    padding: 2.4rem 0 3rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    border-top: 1.5px solid var(--ink);
+    margin-top: 1rem;
+  }
+  footer p { max-width: 42em; margin: 0.4em 0; }
+</style>
+
+<header class="wrap">
+  <span class="logotype">マンガクル</span>
+  <span class="chip"><span class="dot"></span>LINEで配布中</span>
+</header>
+
+<div class="wrap">
+  <div class="hero-grid">
+    <div class="panel">
+      <span class="bubble tail">テーマを話しかけるだけ</span>
+      <h1>話しかけると、<br /><span class="accent-word">マンガ</span>がクル。</h1>
+      <p class="hero-sub">
+        テーマを一言伝えるだけで、ストーリーもキャラクターもコマ割りも、AIが自動で描き上げます。集客・発信に使えるオリジナル漫画を、あなたのチャットひとつで。
+      </p>
+      <a
+        class="cta-primary"
+        href="https://u6r0u7fm.autosns.app/addfriend/s/Nxt7FrQaY2/@237wvbjj"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 3C6.9 3 2.75 6.55 2.75 10.9c0 3.9 3.3 7.17 7.77 7.8.3.06.71.2.81.46.09.24.06.6.03.84l-.13.8c-.04.24-.19.93.82.51 1-.42 5.43-3.2 7.41-5.48 1.37-1.5 2.03-3.03 2.03-4.93C21.49 6.55 17.34 3 12 3z"
+            fill="currentColor"
+          />
+        </svg>
+        友だち追加してダウンロード
+      </a>
+      <p class="cta-note">LINE公式アカウントを友だち追加すると、ダウンロードリンクが届きます。</p>
+    </div>
+    <div class="hero-art">
+      <img
+        src="assets/sample-page-04.jpg"
+        alt="マンガクルが自動生成した実際の漫画ページ（パン屋を継いだ主人公が新商品を完成させる場面）"
+      />
+      <div class="hero-art-caption">
+        <span class="mono">SAMPLE 04</span>
+        <span>実際に生成された1ページ・無加工</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="halftone"></div>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>発信、こんなところで止まっていませんか。</h2>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card">毎回、文章だけの投稿…なかなか反応が伸びない</div>
+    <div class="pain-card">漫画を1本発注すると、数万円と何週間もかかる</div>
+    <div class="pain-card">AIに描かせると、キャラの顔がページごとに変わる</div>
+  </div>
+  <p class="pivot-line">その3つ、<span class="accent-word">マンガクル</span>ならまとめて解決します。</p>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>マンガクルが選ばれる理由</h2>
+    <p>あなたのPCとサブスクだけで完結する、4つの仕組み。</p>
+  </div>
+  <div class="value-grid">
+    <div class="panel">
+      <span class="panel-label">話すだけ</span>
+      <h3>チャットに一言、テーマを伝えるだけ</h3>
+      <p>ストーリー構成もコマ割りも、対話しながらAIが自動設計。台本もネームも自分で書く必要はありません。</p>
+    </div>
+    <div class="panel">
+      <span class="panel-label">追加課金なし</span>
+      <h3>動くのはあなたのサブスクだけ</h3>
+      <p>ChatGPT Plus・Claude Proの契約だけで完結。生成すればするほど別料金がかさむ、ということがありません。</p>
+    </div>
+    <div class="panel">
+      <span class="panel-label">絵柄が安定</span>
+      <h3>キャラの顔も服も、ページをまたいで崩れない</h3>
+      <p>専用のキャラクター設定シートを毎ページ参照して生成するから、1冊を通して同じキャラだと分かります。</p>
+    </div>
+    <div class="panel">
+      <span class="panel-label">そのままPDF</span>
+      <h3>完成ページを1冊のPDFに自動でまとめる</h3>
+      <p>生成し終えたら、そのまま配布・印刷できる1つのPDFファイルとして書き出されます。</p>
+    </div>
+  </div>
+
+  <div class="proof-grid">
+    <figure>
+      <img src="assets/sample-page-03.jpg" alt="サンプルページ3：試作がうまくいかず考え込む主人公とことね" />
+      <figcaption class="mono">SAMPLE 03 — 試作に悩む場面</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/sample-page-04.jpg" alt="サンプルページ4：新商品が完成し笑顔になる2人" />
+      <figcaption class="mono">SAMPLE 04 — 完成して笑顔になる場面</figcaption>
+    </figure>
+  </div>
+  <p class="hero-art-caption" style="justify-content:center; margin-top:0.8em;">
+    同じ2キャラクターのまま、ページをまたいでも絵柄が変わりません。
+  </p>
+</section>
+
+<section class="wrap">
+  <div class="section-head">
+    <h2>できあがるまで、4ステップ</h2>
+  </div>
+  <div class="steps">
+    <div class="panel step">
+      <div class="step-visual">
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H20l-8 7v-7h-4a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round" />
+          <circle cx="16" cy="22" r="2.1" fill="var(--ink)" />
+          <circle cx="24" cy="22" r="2.1" fill="var(--ink)" />
+          <circle cx="32" cy="22" r="2.1" fill="var(--ink)" />
+        </svg>
+      </div>
+      <div class="step-body">
+        <span class="panel-label mono">01</span>
+        <h3>テーマを話す</h3>
+        <p>「〇〇な漫画を作って」と一言伝えるだけ。</p>
+      </div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="panel step">
+      <div class="step-visual">
+        <img src="assets/step-character.jpg" alt="マンガクルが設計した主人公キャラクターの例" />
+      </div>
+      <div class="step-body">
+        <span class="panel-label mono">02</span>
+        <h3>キャラができる</h3>
+        <p>外見が被らないよう自動で設計・生成。</p>
+      </div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="panel step">
+      <div class="step-visual">
+        <img src="assets/step-page.jpg" alt="生成された漫画ページの例" />
+      </div>
+      <div class="step-body">
+        <span class="panel-label mono">03</span>
+        <h3>ページができる</h3>
+        <p>コマ割り・セリフ・背景まで自動で描写。</p>
+      </div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="panel step">
+      <div class="step-visual">
+        <svg class="step-icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M14 6h14l8 8v26a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round" />
+          <path d="M28 6v8h8" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round" />
+          <path d="M18 25h12M18 30h12M18 35h7" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div class="step-body">
+        <span class="panel-label mono">04</span>
+        <h3>PDFが届く</h3>
+        <p>全ページを1冊のPDFに自動で統合。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="finale">
+    <span class="finale-eyebrow"><span class="dot"></span>今なら4ページを体験</span>
+    <div class="mark-wrap">
+      <h2>さっそく、<br />今すぐ手元に。</h2>
+      <svg viewBox="0 0 220 130" aria-hidden="true">
+        <ellipse
+          cx="112"
+          cy="58"
+          rx="98"
+          ry="44"
+          fill="none"
+          stroke="#fbf7ef"
+          stroke-width="7"
+          opacity="0.55"
+          transform="rotate(-4 112 58)"
+        />
+        <ellipse
+          cx="112"
+          cy="58"
+          rx="96"
+          ry="42"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="4"
+          transform="rotate(-4 112 58)"
+        />
+        <path
+          d="M40 108 C 55 118, 66 120, 74 116"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+        <path
+          d="M64 106 L 75 117 L 61 121"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+    <p class="finale-sub">話しかけるだけで、物語もキャラも漫画ページも。あなたの最初の1冊を、今日のうちに。</p>
+    <div class="finale-tags">
+      <span>話すだけ</span>
+      <span>追加課金なし</span>
+      <span>絵柄が安定</span>
+    </div>
+    <div>
+      <a
+        class="cta-primary"
+        href="https://u6r0u7fm.autosns.app/addfriend/s/Nxt7FrQaY2/@237wvbjj"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 3C6.9 3 2.75 6.55 2.75 10.9c0 3.9 3.3 7.17 7.77 7.8.3.06.71.2.81.46.09.24.06.6.03.84l-.13.8c-.04.24-.19.93.82.51 1-.42 5.43-3.2 7.41-5.48 1.37-1.5 2.03-3.03 2.03-4.93C21.49 6.55 17.34 3 12 3z"
+            fill="currentColor"
+          />
+        </svg>
+        友だち追加してダウンロードリンクを受け取る
+      </a>
+    </div>
+    <p class="finale-credit">背景イラストもマンガクルが自動生成したものです</p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>
+    動作にはChatGPT Plus・Claude Pro相当のご契約が必要です（別途契約が必要／本ツール自体に追加のAPI課金はありません）。対応環境：Mac / Windows（Node.js・Python実行環境）。画像生成は1ページあたり2〜3分が目安です。
+  </p>
+  <p><a href="manual/">はじめての方向けガイド（使い方マニュアル）はこちら</a></p>
+  <p class="mono">マンガクル</p>
+</footer>
+
+</body>
+</html>
