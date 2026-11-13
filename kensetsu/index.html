@@ -1257,13 +1257,16 @@ footer {
   .service-footer { flex-direction: column; align-items: flex-start; }
 }
 
-/* 建築会社版：社長キャラ（横長の切り抜き）に合わせた調整 */
-.scene-img img:not(.face) { height: auto; width: 88%; max-height: 94%; object-fit: contain; object-position: bottom; }
+/* 建築会社版：社長イラスト（背景つき）に合わせた調整 */
+.scene-img img:not(.face) { inset: 0; left: 0; bottom: auto; transform: none; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
 .scene-img img.face { width: 40%; }
-.ba img { height: auto; width: 96%; max-height: 80%; object-fit: contain; object-position: bottom; }
-.ba-before img { left: 54%; }
-.turn-chara { width: min(340px, 70vw); }
-.after-chara { max-width: 420px; }
+.ba img { inset: 0; left: 0 !important; bottom: auto; transform: none; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.ba-words { z-index: 3; }
+.ba-words span { background: rgba(10,11,15,0.72); color: #fff; padding: 2px 10px; border-radius: 4px; width: fit-content; }
+.ba-after .ba-words { right: 6%; align-items: flex-end; }
+.turn-chara { width: min(360px, 78vw); border-radius: 18px; border: 3px solid #fff; }
+.after-chara { max-width: 420px; border-radius: 18px; border: 3px solid var(--ink); box-shadow: 8px 8px 0 var(--gold); }
+.yours-chara-wrap img { border-radius: 16px; border: 2px solid var(--ink); }
 </style>
 </head>
 <body>
